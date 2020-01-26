@@ -1,0 +1,32 @@
+<li class="nav-item active" *ngIf="childrenItems.length==1;else dropdown">
+    <a class="nav-link" [routerLink]="target">
+      {{label}} <span class="sr-only">(current)</span></a
+    >
+
+    <ng-content>
+
+    </ng-content>
+
+  </li>
+
+
+  
+
+    
+  <ng-template #dropdown>
+    <li class="nav-item dropdown" *ngIf="childrenItems">  
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          {{label}}
+        </a>
+        <div class="dropdown-menu">
+            <ng-content></ng-content>
+        </div>
+      </li>
+
+    </ng-template>
+
+
+
+
+
+  
