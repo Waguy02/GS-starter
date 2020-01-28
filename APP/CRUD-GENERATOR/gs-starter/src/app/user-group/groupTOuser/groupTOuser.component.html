@@ -1,0 +1,29 @@
+<mat-card  fxLayout="column" fxLayoutAling="space-between">
+
+  <mat-card-header fxFlex="5" fxLayout="column" fxLayout="center">
+          Liste des user
+  </mat-card-header>
+
+
+  <mat-card-content style="overflow: auto" fxFlex="80" fxLayout="column" fxLayoutGap="5" fxLayoutAling="flex-start" >
+
+      <mat-card *ngFor="let user of userList" fxFLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
+
+              <div class="bg-transparent" fxFlex="40" fxFlex.xs="80">
+                      Informations sur le user ici
+              </div>  
+
+              <div flFlex="20">
+                          <button mat-button (click)="actionQuit(user)">QUITTER</button>
+              </div>
+          
+      
+      </mat-card>
+
+  </mat-card-content>
+
+
+
+
+
+</mat-card>

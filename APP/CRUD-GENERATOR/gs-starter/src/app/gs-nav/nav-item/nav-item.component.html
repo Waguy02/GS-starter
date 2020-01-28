@@ -1,12 +1,10 @@
-<li class="nav-item active" *ngIf="childrenItems.length==1;else dropdown">
-    <a class="nav-link" [routerLink]="target">
-      {{label}} <span class="sr-only">(current)</span></a
-    >
 
-    <ng-content>
-
-    </ng-content>
-
+   
+  <li  *ngIf="childrenItems.length==1;else dropdown">
+    <a  [routerLink]="target">
+      <i class="ti-blackboard"></i>
+      <p> {{label}}</p>
+    </a>
   </li>
 
 

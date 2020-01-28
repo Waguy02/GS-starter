@@ -1,0 +1,61 @@
+{
+  "title": "Liste des utilisateurs",
+  "entity": "user",
+  "api": {
+    "url": "http://localhost:5500/rh/user"
+  },
+  "filter": [
+    "espece"
+  ],
+  "fields": [
+    {
+      "name": "_id",
+      "label": "Id",
+      "isId": true,
+      "readonly": true,
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "label":"nom",
+      "type": "string",
+      "required": true
+    },
+    {
+      "label":"Adresse",
+      "name": "adresse",
+      "type": "string",
+      "required": true
+    },
+    {
+      "label":"Sexe",
+      "name": "sexe",
+      "type": "string",
+      "control": "list",
+      "list_display": "checkbox",
+      "list_options": [
+        {"label":"Masculin","value":"M"},
+        {"label":"Féminin","value":"F"}
+      ]
+    },
+
+    {
+      "label":"Date de naissance",
+      "name":"date_naissance",
+      "type":"date",
+      "required":true
+    },
+    {
+      "label":"Niveau ",
+      "name":"niveau",
+      "type":"string",
+
+    }
+
+
+
+    
+    
+    
+  ]
+}

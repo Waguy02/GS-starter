@@ -1,17 +1,45 @@
-<nav ngxNavbarDynamicExpand class="navbar-light bg-light">
-    <a class="navbar-brand" href="#">{{title}}</a>
+<div class="sidebar-wrapper">
+  <div class="logo">
+    <a class="simple-text">
+      <div class="logo-img" style="width:100%">
+        <h3>GS-STARTER</h3>
+      </div>
 
-    <button class="navbar-toggler" type="button" (click)="collapse.toggle()" aria-controls="main-nav" aria-expanded="false"
-        aria-label="Navigáció kapcsoló">
-        <span class="navbar-toggler-icon d-flex align-items-center justify-content-center">
-            <i class="fas fa-bars text-white"></i>
-        </span>
-    </button>
-    <ngx-navbar-collapse id="main-nav" #collapse="ngxNavbarCollapse">
-        <ul class="navbar-nav mr-auto">
+    </a>
+  </div>
+  <ul class="nav">
+   <!-- <ng-content></ng-content>-->
+  
+      <li>
+        <a routerLink="especes">
+          <i class="ti-receipt"></i>
+          <p>Gestion des espèces</p>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a routerLink="parcelles">
+          <i class="ti-blackboard"></i>
+          <p>Gestion des Plants</p>
+        </a>
+      </li>
 
-            <ng-content></ng-content>
-            
-        </ul>
-    </ngx-navbar-collapse>
-</nav>
+      <li>
+          <a routerLink="users">
+            <i class="ti-blackboard"></i>
+            <p>Gestion des Utilisateurs</p>
+          </a>
+        </li>
+        <li>
+            <a routerLink="groups">
+              <i class="ti-blackboard"></i>
+              <p>Gestion des Groupes</p>
+            </a>
+          </li>
+
+  
+
+
+  </ul>
+</div>

@@ -1,0 +1,164 @@
+<ol class="breadcrumb ">
+  <li class="breadcrumb-item"><a routerLink="/">Accueil</a></li>
+  <li class="breadcrumb-item active">
+    Liste des Groupes
+  </li>
+</ol>
+<div class="card">
+  <div class="header">
+    <h2 class="title">
+      Liste des Groupes
+    </h2>
+  </div>
+  <div class="content">
+    <div *ngIf="feedback" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
+    <form *ngIf="group" #editForm="ngForm" (ngSubmit)="save()">
+      
+      <div class="form-group">
+
+
+
+        
+
+
+
+
+
+
+        
+
+
+
+        <label >
+          Id</label>
+
+
+        {{
+        group.
+        _id|| 'n/a'}}
+        
+        
+
+        
+
+      </div>
+
+
+      
+      <div class="form-group">
+
+
+
+        
+
+
+
+
+
+
+        
+
+
+
+        <label for="
+          name"
+          >
+          nom</label>
+
+
+        
+        <input [(ngModel)]="group.name" id="name"
+          name="name" class="form-control">
+        
+
+        
+
+      </div>
+
+
+      
+      <div class="form-group">
+
+
+
+        
+
+
+
+
+
+
+        
+
+
+
+        <label for="
+          description"
+          >
+          Description</label>
+
+
+        
+        <input [(ngModel)]="group.description" id="description"
+          name="description" class="form-control">
+        
+
+        
+
+      </div>
+
+
+      
+      <div class="form-group">
+
+
+
+        
+
+
+        
+
+        
+        
+
+        <label>
+          Statut</label>
+           
+        <mat-radio-group [(ngModel)]="group.statut" name="statut" >
+<div fxLayout="column" fxLayout.xs="column" fxLayoutGap="25" >
+          
+
+            <div>
+          <mat-radio-button value=true  fxFlex>
+            Actif
+          </mat-radio-button>
+        </div>
+          
+
+            <div>
+          <mat-radio-button value=false  fxFlex>
+            Inactif
+          </mat-radio-button>
+        </div>
+          
+        </div>
+        </mat-radio-group>
+
+
+        
+        
+
+      </div>
+
+
+      
+
+      <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Enregistrer</button>
+      <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>
+    </form>
+  </div>
+</div>
+
+<group-TO-user *ngIf="group" [group]="group">
+
+</group-TO-user>

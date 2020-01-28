@@ -1,0 +1,15 @@
+>Modifications effectuées sur angular-crud v1.0
+
+
+1	- - -Intégration des types de supplémentaires :
+
+	1.1: Type Liste avec deux options d'affichage (CheckBOx et DROPDOWN) 
+
+	1.2: Type Ref (Permettant de stocker des références pour des relations de type (1,1) ou (1,n) 
+	
+
+
+2   	-- Création de la collection model-multi-ref permettant d'exposer les services et les vues pour
+	les relations de types n-n
+		
+	

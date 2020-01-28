@@ -1,0 +1,223 @@
+<ol class="breadcrumb ">
+  <li class="breadcrumb-item"><a routerLink="/">Accueil</a></li>
+  <li class="breadcrumb-item active">
+    Liste des parcelles
+  </li>
+</ol>
+<div class="card">
+  <div class="header">
+    <h2 class="title">
+      Liste des parcelles
+    </h2>
+  </div>
+  <div class="content">
+    <div *ngIf="feedback" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
+    <form *ngIf="parcelle" #editForm="ngForm" (ngSubmit)="save()">
+      
+      <div class="form-group">
+
+
+
+        
+
+
+
+
+
+
+        
+
+
+
+        <label >
+          Id</label>
+
+
+        {{
+        parcelle.
+        _id|| 'n/a'}}
+        
+        
+
+        
+
+      </div>
+
+
+      
+      <div class="form-group">
+
+
+
+        
+
+
+
+
+
+
+        
+
+
+
+        <label for="
+          location"
+          >
+          Localisation</label>
+
+
+        
+        <input [(ngModel)]="parcelle.location" id="location"
+          name="location" class="form-control">
+        
+
+        
+
+      </div>
+
+
+      
+      <div class="form-group">
+
+
+
+        
+
+
+
+
+
+
+        
+        <mat-form-field>
+
+          <input matInput class="form-control" placeholder="Espèce" name="Espèce" [matAutocomplete]="autoEspece"
+            [formControl]="especeInput" (blur)="checkEspece()">
+
+        </mat-form-field>
+
+        <mat-autocomplete #autoEspece="matAutocomplete" [displayWith]="displayEspece"
+          (optionSelected)="especeClick($event)">
+
+          <mat-option *ngIf="isLoadingEspece" class="is-loading">
+            <mat-spinner diameter="50"></mat-spinner>
+          </mat-option>
+          <ng-container *ngIf="!isLoadingEspece">
+            <mat-option *ngFor="let espece of filteredEspeceList" [value]="espece">
+              <span>{{
+                espece.display}}</span>
+
+            </mat-option>
+          </ng-container>
+        </mat-autocomplete>
+
+
+
+        
+
+      </div>
+
+
+      
+      <div class="form-group">
+
+
+
+        
+
+
+
+
+
+
+        
+
+
+
+        <label for="
+          date_semis"
+          >
+          Date de sémis</label>
+
+
+        
+        <input type="date" [(ngModel)]="parcelle.date_semis"
+          id="date_semis" name="date_semis" class="form-control">
+        
+
+        
+
+      </div>
+
+
+      
+      <div class="form-group">
+
+
+
+        
+
+
+
+
+
+
+        
+
+
+
+        <label for="
+          description"
+          >
+          Description</label>
+
+
+        
+        <input [(ngModel)]="parcelle.description" id="description"
+          name="description" class="form-control">
+        
+
+        
+
+      </div>
+
+
+      
+      <div class="form-group">
+
+
+
+        
+
+
+
+
+
+
+        
+
+
+
+        <label for="
+          nombre_plant"
+          >
+          Nombre de plants</label>
+
+
+        
+        <input type="number" [(ngModel)]="parcelle.nombre_plant"
+          id="nombre_plant" name="nombre_plant" class="form-control">
+        
+
+        
+
+      </div>
+
+
+      
+
+      <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Enregistrer</button>
+      <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>
+    </form>
+  </div>
+</div>

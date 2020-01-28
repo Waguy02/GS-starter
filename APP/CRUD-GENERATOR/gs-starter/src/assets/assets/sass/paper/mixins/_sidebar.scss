@@ -1,0 +1,18 @@
+@mixin sidebar-background-color($background-color, $font-color) {
+  &:after,
+  &:before {
+    background-color: $background-color;
+  }
+
+  .logo {
+    border-bottom: 1px solid rgba($font-color, .3);
+
+    p {
+      color: $font-color;
+    }
+
+    .simple-text {
+      color: $font-color;
+    }
+  }
+}

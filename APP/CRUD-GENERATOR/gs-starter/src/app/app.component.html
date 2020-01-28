@@ -1,12 +1,12 @@
-<app-nav></app-nav>
-
-
-
-<mat-card class="bg-light" style="min-height: 100vh" fxLayout="column" > 
-
-    
-    <router-outlet></router-outlet>
-
-</mat-card>
-
-
+<div class="wrapper">
+    <div class="sidebar" data-background-color="white" data-active-color="danger">
+      <app-nav></app-nav>
+    </div>
+    <div class="main-panel">
+      
+      <div class="content">
+        <router-outlet></router-outlet>
+        <router-outlet name="aux"></router-outlet>
+      </div>
+    </div>
+  </div>

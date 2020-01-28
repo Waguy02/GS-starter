@@ -1,0 +1,213 @@
+<ol class="breadcrumb ">
+  <li class="breadcrumb-item"><a routerLink="/">Accueil</a></li>
+  <li class="breadcrumb-item active">
+    Liste des utilisateurs
+  </li>
+</ol>
+<div class="card">
+  <div class="header">
+    <h2 class="title">
+      Liste des utilisateurs
+    </h2>
+  </div>
+  <div class="content">
+    <div *ngIf="feedback" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
+    <form *ngIf="user" #editForm="ngForm" (ngSubmit)="save()">
+      
+      <div class="form-group">
+
+        <label >
+          Id</label>
+
+
+        {{
+        user.
+        _id|| 'n/a'}}
+        
+        
+
+        
+
+      </div>
+
+
+      
+      <div class="form-group">
+
+
+
+        
+
+
+
+
+
+
+        
+
+
+
+        <label for="
+          name"
+          >
+          nom</label>
+
+
+        
+        <input [(ngModel)]="user.name" id="name"
+          name="name" class="form-control">
+        
+
+        
+
+      </div>
+
+
+      
+      <div class="form-group">
+
+
+
+        
+
+
+
+
+
+
+        
+
+
+
+        <label for="
+          adresse"
+          >
+          Adresse</label>
+
+
+        
+        <input [(ngModel)]="user.adresse" id="adresse"
+          name="adresse" class="form-control">
+        
+
+        
+
+      </div>
+
+
+      
+      <div class="form-group">
+
+
+
+        
+
+
+        
+
+        
+        
+
+        <label>
+          Sexe</label>
+           
+        <mat-radio-group [(ngModel)]="user.sexe" name="sexe" >
+<div fxLayout="column" fxLayout.xs="column" fxLayoutGap="25" >
+          
+
+            <div>
+          <mat-radio-button value=M  fxFlex>
+            Masculin
+          </mat-radio-button>
+        </div>
+          
+
+            <div>
+          <mat-radio-button value=F  fxFlex>
+            Féminin
+          </mat-radio-button>
+        </div>
+          
+        </div>
+        </mat-radio-group>
+
+
+        
+        
+
+      </div>
+
+
+      
+      <div class="form-group">
+
+
+
+        
+
+
+
+
+
+
+        
+
+
+
+        <label for="
+          date_naissance"
+          >
+          Date de naissance</label>
+
+
+        
+        <input type="date" [(ngModel)]="user.date_naissance"
+          id="date_naissance" name="date_naissance" class="form-control">
+        
+
+        
+
+      </div>
+
+
+      
+      <div class="form-group">
+
+
+
+        
+
+
+
+
+
+
+        
+
+
+
+        <label for="
+          niveau"
+          >
+          Niveau </label>
+
+
+        
+        <input [(ngModel)]="user.niveau" id="niveau"
+          name="niveau" class="form-control">
+        
+
+        
+
+      </div>
+
+
+      
+
+      <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Enregistrer</button>
+      <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>
+    </form>
+  </div>
+</div>
+
+<user-TO-group  *ngIf="user" [user]="user"></user-TO-group>

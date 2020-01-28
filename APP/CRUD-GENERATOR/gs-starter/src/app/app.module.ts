@@ -1,3 +1,6 @@
+import { GroupModule } from './group/group.module';
+
+import { TestModule } from './test/test.module';
 import { GsNavModule } from './gs-nav/gs-nav.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -11,6 +14,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatToolbarModule, MatSelectModule, MatCardModule, MatInputModule, MatAutocompleteModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatListModule, MatProgressSpinnerModule, MatIconModule, MatButtonModule, MatSidenavModule, MatTabsModule } from '@angular/material';
+import { EspeceModule } from './espece/espece.module';
+import { ParcelleModule } from './parcelle/parcelle.module';
+import { UserModule } from './user/user.module';
+import { UserGroupModule } from './user-group/user-group.module';
 @NgModule({
 
   declarations: [
@@ -27,7 +34,14 @@ import { MatToolbarModule, MatSelectModule, MatCardModule, MatInputModule, MatAu
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    GsNavModule
+    GsNavModule,
+    TestModule,
+    UserModule,
+    GroupModule,
+    
+    EspeceModule,
+   
+    ParcelleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
