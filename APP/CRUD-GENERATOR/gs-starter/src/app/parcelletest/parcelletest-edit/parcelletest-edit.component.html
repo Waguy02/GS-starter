@@ -1,0 +1,240 @@
+<ol class="breadcrumb float-right">
+  <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+  <li class="breadcrumb-item active">
+    Liste des parcelles
+  </li>
+</ol>
+<div class="card">
+  <div class="header">
+    <h2 class="title">
+      Liste des parcelles
+    </h2>
+  </div>
+  <div class="content">
+    <div *ngIf="feedback" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
+    <form *ngIf="parcelletest" #editForm="ngForm" (ngSubmit)="save()">
+      
+
+      
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+            <div class="form-group">
+              <label>
+                Id</label>
+                {{
+                parcelletest.
+                _id || 'n/a'}}
+                
+                
+            </div>
+            
+
+      
+
+
+      
+
+
+
+      
+
+
+            
+            <mat-form-field>
+                <mat-label>Forme du terrain</mat-label>
+                <mat-select [(value)]="land_form">
+                  
+                  <mat-option value=rec> Rectangulaire</mat-option>
+                  
+                  <mat-option value=circ> Circulaire</mat-option>
+                   
+                  
+                </mat-select>
+              </mat-form-field>
+              
+              
+
+
+
+
+            
+
+      
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+            <div class="form-group">
+              <label
+                for="
+                location"
+                >
+                Localisation</label>
+                
+                <input [(ngModel)]="parcelletest.location" id="location"
+                  name="location" class="form-control">
+                
+            </div>
+            
+
+      
+
+
+      <div class="form-group">
+
+
+
+
+
+
+
+
+
+
+
+        <mat-form-field>
+
+          <input matInput class="form-control" placeholder="Espece" name="Espece"
+            [matAutocomplete]="autoEspece" [formControl]="especeInput" (blur)="checkEspece()">
+
+        </mat-form-field>
+
+        <mat-autocomplete #autoEspece="matAutocomplete" [displayWith]="displayEspece"
+          (optionSelected)="especeClick($event)">
+
+          <mat-option *ngIf="isLoadingEspece" class="is-loading">
+            <mat-spinner diameter="50"></mat-spinner>
+          </mat-option>
+          <ng-container *ngIf="!isLoadingEspece">
+            <mat-option *ngFor="let espece of filteredEspeceList" [value]="espece">
+              <span>{{
+                espece.display}}</span>
+
+            </mat-option>
+          </ng-container>
+        </mat-autocomplete>
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+      
+
+      
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+            <div class="form-group">
+              <label
+                for="
+                date_semis"
+                >
+                Date de sémis</label>
+                
+                <input type="date" [(ngModel)]="parcelletest.date_semis"
+                  id="date_semis" name="date_semis" class="form-control">
+                
+            </div>
+            
+
+      
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+            <div class="form-group">
+              <label
+                for="
+                description"
+                >
+                Description</label>
+                
+                <input [(ngModel)]="parcelletest.description" id="description"
+                  name="description" class="form-control">
+                
+            </div>
+            
+
+      
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+            <div class="form-group">
+              <label
+                for="
+                nombre_plant"
+                >
+                Nombre de plants</label>
+                
+                <input type="number" [(ngModel)]="parcelletest.nombre_plant"
+                  id="nombre_plant" name="nombre_plant" class="form-control">
+                
+            </div>
+            
+            <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Enregistrer</button>
+            <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>
+    </form>
+  </div>
+</div>

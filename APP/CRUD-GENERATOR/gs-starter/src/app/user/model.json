@@ -28,6 +28,14 @@
       "required": true
     },
     {
+      "label":"Groupe par défaut",
+      "name": "groupe",
+      "type": "ref",
+      "type_ref":"group",
+      
+      "required": true
+    },
+    {
       "label":"Sexe",
       "name": "sexe",
       "type": "string",

@@ -1,12 +1,16 @@
+import { UserGroupModule } from './user1-group1/user1-group1.module';
+import { ParcelletestModule } from './parcelletest/parcelletest.module';
+
 import { GroupModule } from './group/group.module';
 
 import { TestModule } from './test/test.module';
 import { GsNavModule } from './gs-nav/gs-nav.module';
-import { BrowserModule } from '@angular/platform-browser';
+
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -17,7 +21,8 @@ import { MatToolbarModule, MatSelectModule, MatCardModule, MatInputModule, MatAu
 import { EspeceModule } from './espece/espece.module';
 import { ParcelleModule } from './parcelle/parcelle.module';
 import { UserModule } from './user/user.module';
-import { UserGroupModule } from './user-group/user-group.module';
+
+
 @NgModule({
 
   declarations: [
@@ -34,6 +39,7 @@ import { UserGroupModule } from './user-group/user-group.module';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    UserGroupModule,
     GsNavModule,
     TestModule,
     UserModule,
@@ -41,7 +47,8 @@ import { UserGroupModule } from './user-group/user-group.module';
     
     EspeceModule,
    
-    ParcelleModule
+    ParcelleModule,
+    ParcelletestModule
   ],
   providers: [],
   bootstrap: [AppComponent]
