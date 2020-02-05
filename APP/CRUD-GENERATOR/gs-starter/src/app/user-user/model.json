@@ -1,7 +1,7 @@
 {
     "title": "Liste des Groupes",
     "first_entity": "user",
-    "second_entity": "group",
+    "second_entity": "user",
     "ref_order": 1,
     "api": {
         "url": "http://localhost:5500/rh/user_group"

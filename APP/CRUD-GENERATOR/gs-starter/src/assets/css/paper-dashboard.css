@@ -343,6 +343,54 @@ hr {
   background-size: cover;
   background-position: center center;
 }
+/* make sidebar nav vertical */ 
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .sidebar .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+
+
+
+
+
+
+
+
 
 .sidebar .sidebar-wrapper {
   position: relative;

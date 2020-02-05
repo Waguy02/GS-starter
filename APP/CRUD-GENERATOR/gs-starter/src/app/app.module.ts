@@ -1,4 +1,5 @@
-import { UserGroupModule } from './user1-group1/user1-group1.module';
+import { UserGroupModule } from './user-group/user-group.module';
+
 import { ParcelletestModule } from './parcelletest/parcelletest.module';
 
 import { GroupModule } from './group/group.module';
@@ -31,6 +32,8 @@ import { UserModule } from './user/user.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MatSidenavModule,
+    MatToolbarModule,
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,

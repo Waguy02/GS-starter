@@ -23,6 +23,8 @@ export class NavItemComponent implements OnInit {
   @Input() target=null;
 
 
+  @Input() icon="ti-blackboard"
+
 
   @ContentChildren(NavItemComponent) childrenItems:QueryList<NavItemComponent>;
 }

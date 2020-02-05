@@ -6,10 +6,10 @@ export class UserGroup {
     group:Group;
      user:User;
     
-    
      
-        _id:string;
-        statut:boolean;
+        _id: string;
+        statut: boolean;
+      
         
 
 

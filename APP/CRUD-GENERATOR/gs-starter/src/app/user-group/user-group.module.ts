@@ -4,12 +4,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UserService } from './../user/user.service'
-import { USER_ROUTES } from './../user/user.routes';
+
 
 import { UserGroupService } from './user-group.service';
 
 import { GroupService } from './../group/group.service'
-import { GROUP_ROUTES } from './../group/group.routes';
+
 
 import { GroupToUserComponent } from './groupTOuser/groupTOuser.component';
 import { UserToGroupComponent } from './userTOgroup/userTOgroup.component';

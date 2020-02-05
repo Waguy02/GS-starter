@@ -13,145 +13,128 @@
   <div class="content">
     <div *ngIf="feedback" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
     <form *ngIf="group" #editForm="ngForm" (ngSubmit)="save()">
-      
+
       <div class="form-group">
 
-
-
-        
-
-
-
-
-
-
-        
-
-
-
-        <label >
+        <label>
           Id</label>
 
 
         {{
         group.
         _id|| 'n/a'}}
-        
-        
 
-        
+
+
+
 
       </div>
 
 
-      
+
       <div class="form-group">
 
 
 
-        
 
 
 
 
 
 
-        
+
+
 
 
 
         <label for="
-          name"
-          >
+          name">
           nom</label>
 
 
-        
-        <input [(ngModel)]="group.name" id="name"
-          name="name" class="form-control">
-        
 
-        
+        <input [(ngModel)]="group.name" id="name" name="name" class="form-control">
+
+
+
 
       </div>
 
 
-      
+
       <div class="form-group">
 
 
 
-        
 
 
 
 
 
 
-        
+
+
 
 
 
         <label for="
-          description"
-          >
+          description">
           Description</label>
 
 
-        
-        <input [(ngModel)]="group.description" id="description"
-          name="description" class="form-control">
-        
 
-        
+        <input [(ngModel)]="group.description" id="description" name="description" class="form-control">
+
+
+
 
       </div>
 
 
-      
+
       <div class="form-group">
 
 
 
-        
 
 
-        
 
-        
-        
+
+
+
+
 
         <label>
           Statut</label>
-           
-        <mat-radio-group [(ngModel)]="group.statut" name="statut" >
-<div fxLayout="column" fxLayout.xs="column" fxLayoutGap="25" >
-          
+
+        <mat-radio-group [(ngModel)]="group.statut" name="statut">
+          <div fxLayout="column" fxLayout.xs="column" fxLayoutGap="25">
+
 
             <div>
-          <mat-radio-button value=true  fxFlex>
-            Actif
-          </mat-radio-button>
-        </div>
-          
+              <mat-radio-button value=true fxFlex>
+                Actif
+              </mat-radio-button>
+            </div>
+
 
             <div>
-          <mat-radio-button value=false  fxFlex>
-            Inactif
-          </mat-radio-button>
-        </div>
-          
-        </div>
+              <mat-radio-button value=false fxFlex>
+                Inactif
+              </mat-radio-button>
+            </div>
+
+          </div>
         </mat-radio-group>
 
 
-        
-        
+
+
 
       </div>
 
 
-      
+
 
       <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Enregistrer</button>
       <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>

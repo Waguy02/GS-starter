@@ -29,7 +29,7 @@
     },
     {
       "label":"Groupe par défaut",
-      "name": "groupe",
+      "name": "group",
       "type": "ref",
       "type_ref":"group",
       
@@ -40,7 +40,7 @@
       "name": "sexe",
       "type": "string",
       "control": "list",
-      "list_display": "checkbox",
+      "list_display": "dropdown",
       "list_options": [
         {"label":"Masculin","value":"M"},
         {"label":"Féminin","value":"F"}

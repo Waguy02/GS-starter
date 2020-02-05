@@ -5,16 +5,16 @@
   </mat-card-header>
 
 
-  <mat-card-content style="overflow: auto" fxFlex="80" fxLayout="column" fxLayoutGap="5" fxLayoutAling="flex-start" >
+  <mat-card-content style="overflow: auto" fxFlex="80" fxLayout="column" fxLayoutGap="5" fxLayoutAlign="flex-start" >
 
-      <mat-card *ngFor="let user of userList" fxFLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
+      <mat-card *ngFor="let user_group of user_groupList" fxFLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
 
               <div class="bg-transparent" fxFlex="40" fxFlex.xs="80">
                       Informations sur le user ici
               </div>  
 
               <div flFlex="20">
-                          <button mat-button (click)="actionQuit(user)">QUITTER</button>
+                <button mat-button (click)="actionQuit(user_group)">QUITTER</button>
               </div>
           
       

@@ -1,19 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { UserFilter } from '../user-filter';
 import { UserService } from '../user.service';
-import { User} from '../user';
-
-
-
-  
-  
-  
-  
-  
-  
+import { User } from '../user';
 
 @Component({
   selector: 'app-user',
+  styleUrls:['./user-list.scss'],
   templateUrl: 'user-list.component.html'
 })
 export class UserListComponent implements OnInit {
@@ -38,7 +30,7 @@ export class UserListComponent implements OnInit {
   }
 
   select(selected: User): void {
-    this.selectedUser= selected;
+    this.selectedUser = selected;
   }
 
   delete(user: User): void {

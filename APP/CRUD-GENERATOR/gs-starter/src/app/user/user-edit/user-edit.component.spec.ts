@@ -5,9 +5,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { UserEditComponent } from './user-edit.component';
 import { UserService } from '../user.service';
 
-
-
-
 describe('UserEditComponent', () => {
   let component: UserEditComponent;
   let fixture: ComponentFixture<UserEditComponent>;

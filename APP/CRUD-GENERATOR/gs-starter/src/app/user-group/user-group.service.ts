@@ -1,5 +1,13 @@
-import { Group } from 'src/app/group/group';
+
+
+
+ 
+    import { Group } from 'src/app/group/group';
+    
+    
+
 import { User} from './../user/user';
+
 import { camelize } from '@angular-devkit/core/src/utils/strings';
 import { UserGroup} from './user-group';
 
@@ -23,7 +31,7 @@ export class UserGroupService {
     }
 
 
-    public findGroupByUser(user:User):Observable<any>{
+    public findByUser(user:User):Observable<any>{
 
 
         const url = this.api+'/'+'user'+'/'+user._id;
@@ -36,7 +44,9 @@ export class UserGroupService {
     }
 
 
-    public findUserByGroup(group:Group):Observable<any>{
+    
+
+    public findByGroup(group:Group):Observable<any>{
 
 
         const url = this.api+'/'+'group'+'/'+group._id;
@@ -72,12 +82,12 @@ export class UserGroupService {
 
 
 
-        public separate(user:User,group:Group){
+        public separate(user_group:UserGroup){
+
+            const url = this.api+"/"+user_group._id;
             const params ={
-                "id_user":user._id,
-                "id_group":group._id
             }
-                return this.http.delete<UserGroup>(this.api,
+                return this.http.delete<UserGroup>(url,
                     {headers,params})
         
         {

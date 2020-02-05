@@ -1,7 +1,7 @@
 import { UserService } from './../../user/user.service';
-import { User } from 'src/app/user/user';
-import { UserGroupService } from './../user-group.service';
 
+import { UserGroupService } from './../user-group.service';
+import { UserGroup } from '../user-group';
 
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -10,7 +10,13 @@ import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { map, switchMap, debounceTime, tap, finalize } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { Group } from 'src/app/group/group';
+
+
+import { User } from 'src/app/user/user';
+ 
+  import { Group } from 'src/app/group/group';
+  
+  
 const caster=require('gs-cast');
 
   
@@ -25,6 +31,7 @@ const caster=require('gs-cast');
 @Component({
   selector: 'group-TO-user',
   templateUrl: './groupTOuser.component.html',
+  styleUrls:['./groupTOuser.scss'],
   providers:[ 
     UserService 
     
@@ -33,13 +40,12 @@ const caster=require('gs-cast');
     
     
   ]
-})
-export class GroupToUserComponent implements OnInit {
+})export class GroupToUserComponent implements OnInit {
 
   id: string;
   @Input()
   group: Group
-    userList:User[];
+    user_groupList:UserGroup[];
   
 
   feedback: any = {};
@@ -61,8 +67,10 @@ export class GroupToUserComponent implements OnInit {
 
 
   ngOnInit() {
-    this.userList=new Array<User>();
-        this.user_group_service.findUserByGroup(this.group).subscribe(
+    this.user_groupList=new Array<UserGroup>();
+
+    var currentGroup=this.group;
+        this.user_group_service.findByGroup(this.group).subscribe(
           
 
             data=>{
@@ -70,7 +78,21 @@ export class GroupToUserComponent implements OnInit {
               console.log(data);
               
               for(var result of data){
-                this.userService.findById(result.user).subscribe(user=>this.userList.push(user))
+
+                
+                this.userService.findById(result.user).subscribe(user=>{
+                  
+                  
+                  var temp=new UserGroup();
+                  Object.assign(temp,result);
+                  temp.user=user;
+                  temp.group=currentGroup;
+                  this.user_groupList.push(temp);
+                  
+                  
+                  
+                  
+                })
               }
 
               
@@ -88,12 +110,12 @@ export class GroupToUserComponent implements OnInit {
   }
 
 
-  
-actionQuit(user){
 
-    this.user_group_service.separate(user,this.group);
+  actionQuit(user_group){
+
+    this.user_group_service.separate(user_group).subscribe(data=>{console.log("Separation effectuée avec succès")},err=>{"Erreur survenue lors de la séparation"})
+   
 }
-
 
 
 

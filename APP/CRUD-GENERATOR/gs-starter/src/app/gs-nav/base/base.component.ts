@@ -9,7 +9,7 @@ enum NavPosition{
 
 
 @Component({
-  selector: 'base-nav',
+  selector: 'gs-nav',
   templateUrl: './base.component.html',
   styleUrls: ['./base.component.scss']
 })
