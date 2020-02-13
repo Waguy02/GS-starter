@@ -21,7 +21,7 @@
       
             <div class="form-group">
 
-                <mat-form-field>
+                <mat-form-field class="gs-mat-field" fxFlex="100">
 
                     
           
@@ -38,7 +38,7 @@
       
             <div class="form-group">
 
-                <mat-form-field>
+                <mat-form-field class="gs-mat-field" fxFlex="100">
 
                     
           
@@ -55,7 +55,7 @@
       
             <div class="form-group">
 
-                <mat-form-field>
+                <mat-form-field class="gs-mat-field" fxFlex="100">
 
                     
           
@@ -71,7 +71,7 @@
 
       <div class="form-group">
 
-         <mat-form-field>
+         <mat-form-field  class="gs-mat-field" fxFlex="100">
 
           <input matInput class="form-control" placeholder="Group" name="Group"
             [matAutocomplete]="autoGroup" [formControl]="groupInput" (blur)="checkGroup()">
@@ -118,7 +118,7 @@
 
             
               <div class="form-group">
-            <mat-form-field>
+            <mat-form-field class="gs-mat-field" fxFlex="100">
                 <mat-label>Sexe</mat-label>
                 <mat-select [(value)]="sexe">
                   
@@ -140,8 +140,11 @@
       
             <div class="form-group">
 
-                <mat-form-field>
-                 <input matInput [matDatepicker]="datepicker" placeholder="Date de naissance" [(ngModel)]="user.date_naissance" name="DateNaissance"  required   >
+                <mat-form-field class="gs-mat-field" fxFlex="100">
+
+                    
+          
+                    <input matInput [matDatepicker]="datepicker" placeholder="Date de naissance" [(ngModel)]="user.date_naissance" name="DateNaissance"                                           required   >
                     <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
                     <mat-datepicker touchUi="true" #datepicker></mat-datepicker>
                     
@@ -156,7 +159,7 @@
       
             <div class="form-group">
 
-                <mat-form-field>
+                <mat-form-field class="gs-mat-field" fxFlex="100">
 
                     
           

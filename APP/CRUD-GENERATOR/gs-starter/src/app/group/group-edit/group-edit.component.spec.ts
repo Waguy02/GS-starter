@@ -5,9 +5,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { GroupEditComponent } from './group-edit.component';
 import { GroupService } from '../group.service';
 
-
-
-
 describe('GroupEditComponent', () => {
   let component: GroupEditComponent;
   let fixture: ComponentFixture<GroupEditComponent>;

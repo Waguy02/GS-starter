@@ -1,6 +1,6 @@
 { 
     "title": "Liste des Groupes",
-    "entity": "groupe",
+    "entity": "group",
     "api": {
       "url": "http://localhost:5500/rh/group"
     },

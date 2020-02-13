@@ -113,8 +113,8 @@ const caster=require('gs-cast');
 
   actionQuit(user_group){
 
-    this.user_group_service.separate(user_group).subscribe(data=>{console.log("Separation effectuée avec succès")},err=>{"Erreur survenue lors de la séparation"})
-   
+    this.user_group_service.separate(user_group).subscribe(data=>{console.log("Separation effectuée avec succès")})
+    
 }
 
 

@@ -1,17 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { GroupFilter } from '../group-filter';
 import { GroupService } from '../group.service';
-import { Group} from '../group';
-
-
-
-  
-  
-  
-  
+import { Group } from '../group';
 
 @Component({
   selector: 'app-group',
+  styleUrls:['./group-list.scss'],
   templateUrl: 'group-list.component.html'
 })
 export class GroupListComponent implements OnInit {
@@ -36,7 +30,7 @@ export class GroupListComponent implements OnInit {
   }
 
   select(selected: Group): void {
-    this.selectedGroup= selected;
+    this.selectedGroup = selected;
   }
 
   delete(group: Group): void {

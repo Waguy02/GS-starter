@@ -1,4 +1,4 @@
-<ol class="breadcrumb ">
+<ol class="breadcrumb float-right">
   <li class="breadcrumb-item"><a routerLink="/">Accueil</a></li>
   <li class="breadcrumb-item active">
     Liste des Groupes
@@ -13,95 +13,70 @@
   <div class="content">
     <div *ngIf="feedback" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
     <form *ngIf="group" #editForm="ngForm" (ngSubmit)="save()">
+      
 
-      <div class="form-group">
-
-        <label>
-          Id</label>
+      
 
 
-        {{
-        group.
-        _id|| 'n/a'}}
+      
+            <div class="form-group">
+
+                <mat-form-field class="gs-mat-field" fxFlex="100">
+
+                    
+          
+                    <input matInput class="form-control" placeholder="Id" name="Id"
+                    type="text"  [(ngModel)]="group._id">
+                     
+          </mat-form-field>
+          </div>
+            
+
+      
 
 
+      
+            <div class="form-group">
+
+                <mat-form-field class="gs-mat-field" fxFlex="100">
+
+                    
+          
+                    <input matInput class="form-control" placeholder="nom" name="Name"
+                    type="text"  [(ngModel)]="group.name">
+                     
+          </mat-form-field>
+          </div>
+            
+
+      
 
 
+      
+            <div class="form-group">
 
-      </div>
+                <mat-form-field class="gs-mat-field" fxFlex="100">
 
+                    
+          
+                    <input matInput class="form-control" placeholder="Description" name="Description"
+                    type="text"  [(ngModel)]="group.description">
+                     
+          </mat-form-field>
+          </div>
+            
 
-
-      <div class="form-group">
-
-
-
-
-
-
-
-
-
-
-
+      
 
 
-
-        <label for="
-          name">
-          nom</label>
-
-
-
-        <input [(ngModel)]="group.name" id="name" name="name" class="form-control">
-
-
-
-
-      </div>
-
-
-
-      <div class="form-group">
-
-
-
-
-
-
-
-
-
+      
 
 
 
-
-
-        <label for="
-          description">
-          Description</label>
-
-
-
-        <input [(ngModel)]="group.description" id="description" name="description" class="form-control">
-
-
-
-
-      </div>
-
+      
 
 
       <div class="form-group">
-
-
-
-
-
-
-
-
-
 
 
         <label>
@@ -111,37 +86,30 @@
           <div fxLayout="column" fxLayout.xs="column" fxLayoutGap="25">
 
 
+            
             <div>
               <mat-radio-button value=true fxFlex>
                 Actif
               </mat-radio-button>
             </div>
 
-
+            
             <div>
               <mat-radio-button value=false fxFlex>
                 Inactif
               </mat-radio-button>
             </div>
 
+            
+
           </div>
+
         </mat-radio-group>
+        </div>
 
-
-
-
-
-      </div>
-
-
-
-
-      <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Enregistrer</button>
-      <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>
+            
+            <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Enregistrer</button>
+            <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>
     </form>
   </div>
 </div>
-
-<group-TO-user *ngIf="group" [group]="group">
-
-</group-TO-user>
