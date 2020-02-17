@@ -1,4 +1,3 @@
-import { UserGroupModule } from './../user-group/user-group.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,7 +13,8 @@ import { GroupEditComponent } from './group-edit/group-edit.component';
 import { GroupService } from './group.service';
 import { GROUP_ROUTES } from './group.routes';
 import { MatAutocompleteModule, MatSpinner, MatProgressSpinnerModule, MatInputModule,
-  MatCardModule,MatFormFieldModule, MatCheckboxModule, MatRadioModule ,MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatButtonModule, MatExpansionModule} from '@angular/material';
+  MatCardModule,MatFormFieldModule,MatTableModule,MatPaginatorModule,MatSortModule, MatCheckboxModule, MatRadioModule ,MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatButtonModule, MatExpansionModule} from '@angular/material';
+import Module = WebAssembly.Module;
 
 @NgModule({
   imports: [
@@ -24,16 +24,15 @@ import { MatAutocompleteModule, MatSpinner, MatProgressSpinnerModule, MatInputMo
     FormsModule,
     MatAutocompleteModule,
     MatInputModule,
-    UserGroupModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    UserGroupModule,
     MatExpansionModule,
     FlexLayoutModule,
     MatCardModule,
     MatButtonModule,
     MatSelectModule,
     MatCheckboxModule,
+    MatTableModule,MatPaginatorModule,MatSortModule,
     MatFormFieldModule,
     MatSelectModule,
     MatProgressSpinnerModule,

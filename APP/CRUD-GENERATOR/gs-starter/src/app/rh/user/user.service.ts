@@ -3,13 +3,13 @@ import { UserFilter } from './user-filter';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-
+import { environment } from 'src/environments/environment';
 const headers = new HttpHeaders().set('Accept', 'application/json');
 
 @Injectable()
 export class UserService {
   userList: User[] = [];
-  api = 'http://localhost:5500/rh/user';
+  api = environment.main_api+'/rh/user';
 
   constructor(private http: HttpClient) {
   }

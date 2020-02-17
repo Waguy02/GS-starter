@@ -1,13 +1,13 @@
-import { UserGroupModule } from './user-group/user-group.module';
 
-import { ParcelletestModule } from './parcelletest/parcelletest.module';
 
-import { GroupModule } from './group/group.module';
+
+
+
 
 import { TestModule } from './test/test.module';
 import { GsNavModule } from './gs-nav/gs-nav.module';
 
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +22,9 @@ import { MatToolbarModule, MatSelectModule, MatCardModule, MatInputModule, MatAu
 import { EspeceModule } from './espece/espece.module';
 import { ParcelleModule } from './parcelle/parcelle.module';
 import {UserModule} from "./rh/user/user.module";
+import {GroupModule} from "./rh/group/group.module";
+import {UserGroupModule} from "./rh/user-group/user-group.module";
+import {ConfigurationService} from "./configuration/configuration.service";
 
 
 
@@ -45,6 +48,7 @@ import {UserModule} from "./rh/user/user.module";
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+
     UserModule,
     GsNavModule,
     TestModule,
@@ -55,9 +59,15 @@ import {UserModule} from "./rh/user/user.module";
     EspeceModule,
 
     ParcelleModule,
-    ParcelletestModule
+
   ],
-  providers: [],
+  providers: [{
+    provide: APP_INITIALIZER,
+    useFactory: (configService: ConfigurationService) => () => configService.loadConfigurations(),
+    deps: [ConfigurationService],
+    multi: true
+  }],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

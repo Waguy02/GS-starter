@@ -5,7 +5,6 @@
   </li>
 </ol>
 <div class="card">
-  
   <div class="header">
     <h2 class="title">
         <span *ngIf="!user._id">Création d'un user</span>
@@ -22,7 +21,7 @@
                 <mat-form-field class="gs-mat-field" fxFlex="100">
                     
                   <input matInput class="form-control" placeholder="Id" name="Id"
-                    type="text"  [(ngModel)]="user._id"   readonly  >
+                    type="text"  [(ngModel)]="user._id">
                      
           </mat-form-field>
           </div>
@@ -33,7 +32,7 @@
                 <mat-form-field class="gs-mat-field" fxFlex="100">
                     
                   <input matInput class="form-control" placeholder="nom" name="Name"
-                    type="text"  [(ngModel)]="user.name"    >
+                    type="text"  [(ngModel)]="user.name">
                      
           </mat-form-field>
           </div>
@@ -65,7 +64,7 @@
               <div class="form-group">
             <mat-form-field class="gs-mat-field" fxFlex="100">
                 <mat-label>Sexe</mat-label>
-                <mat-select [(value)]="sexe">
+                <mat-select [(value)]="user.sexe">
                   
                   <mat-option value=M> Masculin</mat-option>
                   
@@ -94,7 +93,7 @@
                 <mat-form-field class="gs-mat-field" fxFlex="100">
                     
                   <input matInput class="form-control" placeholder="Niveau " name="Niveau"
-                    type="text"  [(ngModel)]="user.niveau"    >
+                    type="text"  [(ngModel)]="user.niveau">
                      
           </mat-form-field>
           </div>

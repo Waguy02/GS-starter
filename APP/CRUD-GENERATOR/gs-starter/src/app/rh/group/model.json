@@ -1,14 +1,16 @@
-{ 
-    "title": "Liste des Groupes",
+{
+    "title": " Groupes",
+  "target": "rh",
     "entity": "group",
     "api": {
-      "url": "http://localhost:5500/rh/group"
+      "root": "main_api",
+      "url": "rh/group"
     },
     "filter": [
-      
-      
 
-      
+
+
+
 
     ],
     "fields": [
@@ -26,8 +28,8 @@
         "name":"name",
         "label":"nom",
         "type":"string"
-     
-     
+
+
 
       },
 
@@ -38,8 +40,8 @@
         "name":"description",
         "label":"Description",
         "type":"string"
-     
-     
+
+
 
       },
 
@@ -56,15 +58,15 @@
 
 
         ]
-     
-     
+
+
 
       }
 
 
-  
 
 
-  
+
+
     ]
   }

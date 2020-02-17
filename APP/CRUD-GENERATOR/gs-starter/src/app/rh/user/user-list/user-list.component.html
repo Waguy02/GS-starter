@@ -8,6 +8,9 @@
   </div>
   <div class="content">
     <form #f="ngForm">
+      
+
+
 
       <button (click)="search()" [disabled]="!f?.valid" class="btn btn-primary">Rechercher</button>
       <a [routerLink]="['../users', 'new' ]" class="btn btn-default">Nouveau</a>
@@ -26,9 +29,9 @@
 
 
 <div  *ngIf="userList.length > 0"  class="example-container mat-elevation-z8">
-
+  
 <mat-table class=""  [dataSource]="dataSource" matSort >
-
+  
     <ng-container matColumnDef="_id">
       <mat-header-cell *matHeaderCellDef mat-sort-header >Id</mat-header-cell>
       <mat-cell *matCellDef="let item" class="mobile-hide">
@@ -37,16 +40,16 @@
         {{item._id}}
       </mat-cell>
     </ng-container>
-
+  
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef mat-sort-header >nom</mat-header-cell>
-      <mat-cell *matCellDef="let item" class="">
+      <mat-cell *matCellDef="let item" class="mobile-hide">
          <span class="mobile-label">nom : </span>
 
         {{item.name}}
       </mat-cell>
     </ng-container>
-
+  
     <ng-container matColumnDef="group">
       <mat-header-cell *matHeaderCellDef mat-sort-header >Groupe préféré</mat-header-cell>
       <mat-cell *matCellDef="let item" class="mobile-hide">
@@ -55,7 +58,7 @@
         {{item.group}}
       </mat-cell>
     </ng-container>
-
+  
     <ng-container matColumnDef="sexe">
       <mat-header-cell *matHeaderCellDef mat-sort-header >Sexe</mat-header-cell>
       <mat-cell *matCellDef="let item" class="mobile-hide">
@@ -64,7 +67,7 @@
         {{item.sexe}}
       </mat-cell>
     </ng-container>
-
+  
     <ng-container matColumnDef="date_naissance">
       <mat-header-cell *matHeaderCellDef mat-sort-header >Date de naissance</mat-header-cell>
       <mat-cell *matCellDef="let item" class="mobile-hide">
@@ -73,7 +76,7 @@
         {{item.date_naissance}}
       </mat-cell>
     </ng-container>
-
+  
     <ng-container matColumnDef="niveau">
       <mat-header-cell *matHeaderCellDef mat-sort-header >Niveau </mat-header-cell>
       <mat-cell *matCellDef="let item" class="mobile-hide">
@@ -82,7 +85,7 @@
         {{item.niveau}}
       </mat-cell>
     </ng-container>
-
+  
 
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>

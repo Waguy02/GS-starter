@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { map, switchMap, debounceTime, tap, finalize } from 'rxjs/operators';
 import { of } from 'rxjs';
-const caster= require('angular-crud/gs-cast');
+const caster=require('angular-crud/gs-cast');
 import { GroupService } from '../group.service';
 import { Group } from '../group';
 
@@ -25,7 +25,7 @@ export class GroupEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private groupService: GroupService,
-
+    
     )
     {
   }
@@ -50,7 +50,7 @@ export class GroupEditComponent implements OnInit {
         }
       );
 
-
+      
 
   }
 
@@ -60,7 +60,7 @@ export class GroupEditComponent implements OnInit {
         this.group = group;
         this.feedback = {type: 'success', message: 'Enregistrement effectué avec succès'};
         setTimeout(() => {
-          this.router.navigate(['/groups']);
+          this.router.navigate(['/rh/groups']);
         }, 1000);
       },
       err => {
@@ -70,7 +70,7 @@ export class GroupEditComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['/groups']);
+    this.router.navigate(['/rh/groups']);
   }
 
 
@@ -79,7 +79,7 @@ export class GroupEditComponent implements OnInit {
 
 
 
-
+  
 
 
 

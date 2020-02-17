@@ -22,7 +22,10 @@ et groupToUser permettant d'effectuer l'opération inverse;
 on spécifie les deux entités (first_entity et second_entity) intervenant dans la relation . 
 	on précise également l'api (EndPoint) permettant de gérer les relations pour la table associée à cette relation . 	
 
+	
+	Commande à exécuter: ng generate angular-crud:model-multi-ref firstEntity secondEntity :
 
+	Nommenclature des repertoires contenant le module :  firstEntity-secondEntity;
 
 
 
@@ -31,5 +34,15 @@ on spécifie les deux entités (first_entity et second_entity) intervenant dans 
 4.-- Ajout d'electron pour exécuter l'application sur desktop 
 
 
-5-- Ajout d'ionic pour générer l'application mobile;
-	
+5-- Ajout d'ionic pour générer l'application mobile;	
+
+
+
+
+
+
+
+
+
+
+> Nouvelles Modifi	

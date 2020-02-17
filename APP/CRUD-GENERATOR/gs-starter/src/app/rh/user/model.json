@@ -3,7 +3,8 @@
   "entity": "user",
   "target": "rh",
   "api": {
-    "url": "http://localhost:5500/rh/user"
+    "root": "main_api",
+    "url": "rh/user"
   },
   "filter": [
     "espece"

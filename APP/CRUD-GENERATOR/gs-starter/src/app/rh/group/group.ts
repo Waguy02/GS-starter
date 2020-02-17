@@ -4,7 +4,7 @@
 
 
 
-  
+
 
 
 export class Group {
@@ -17,8 +17,8 @@ export class Group {
   get display(){
     return  "group_display"; // Remplacer avec la chaine que vous souhaitez afficher
   }
-  
-  
+
+
 }
 
 

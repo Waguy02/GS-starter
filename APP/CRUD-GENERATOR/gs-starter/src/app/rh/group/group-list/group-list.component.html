@@ -1,41 +1,93 @@
 <ol class="breadcrumb float-right">
   <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-  <li class="breadcrumb-item active">Liste des Groupes</li>
+  <li class="breadcrumb-item active"> Groupes</li>
 </ol>
 <div class="card">
   <div class="header">
-    <h2 class="title">Liste des Groupes </h2>
+    <h2 class="title"> Groupes </h2>
   </div>
   <div class="content">
     <form #f="ngForm">
       
+
+
+
       <button (click)="search()" [disabled]="!f?.valid" class="btn btn-primary">Rechercher</button>
       <a [routerLink]="['../groups', 'new' ]" class="btn btn-default">Nouveau</a>
     </form>
   </div>
+
+  <mat-card>
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtre">
+    </mat-form-field>
+  </mat-card>
+
 </div>
-<div class="card" *ngIf="groupList.length > 0">
-  <div *ngIf="feedback" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
-  <div class="table-responsive">
-    <table class="table table-centered table-hover mb-0" id="datatable">
-      <thead>
-        <tr><th class="border-top-0" scope="col">Id</th><th class="border-top-0" scope="col">nom</th><th class="border-top-0" scope="col">Description</th><th class="border-top-0" scope="col">Statut</th>
-          <th class="border-top-0" scope="col" style="width:120px"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of groupList" [class.active]="item === selectedGroup">
-        
-          <td>{{item._id}}</td>
-          <td>{{item.name}}</td>
-          <td>{{item.description}}</td>
-          <td>{{item.statut}}</td>
-          <td style="white-space: nowrap">
-            <a [routerLink]="['../groups', item._id ]" class="btn btn-secondary">Modifier</a>&nbsp;
-            <button (click)="delete(item)" class="btn btn-danger">Supprimer</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+
+
+
+
+<div  *ngIf="groupList.length > 0"  class="example-container mat-elevation-z8">
+  
+<mat-table class=""  [dataSource]="dataSource" matSort >
+  
+    <ng-container matColumnDef="_id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header >Id</mat-header-cell>
+      <mat-cell *matCellDef="let item" class="mobile-hide">
+         <span class="mobile-label">Id : </span>
+
+        {{item._id}}
+      </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header >nom</mat-header-cell>
+      <mat-cell *matCellDef="let item" class="mobile-hide">
+         <span class="mobile-label">nom : </span>
+
+        {{item.name}}
+      </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef mat-sort-header >Description</mat-header-cell>
+      <mat-cell *matCellDef="let item" class="mobile-hide">
+         <span class="mobile-label">Description : </span>
+
+        {{item.description}}
+      </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="statut">
+      <mat-header-cell *matHeaderCellDef mat-sort-header >Statut</mat-header-cell>
+      <mat-cell *matCellDef="let item" class="mobile-hide">
+         <span class="mobile-label">Statut : </span>
+
+        {{item.statut}}
+      </mat-cell>
+    </ng-container>
+  
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell class=""
+              *matCellDef="let item">
+
+      <div fxLayout="row" fxLayout.md="column" fxLayoutAlign="center">
+      <a [routerLink]="['../groups', item._id ]" class="btn btn-secondary">Détails</a>&nbsp;
+      <button (click)="delete(item)" class="btn btn-danger">Supprimer</button>
+      </div>
+
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
 </div>

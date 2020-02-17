@@ -1,6 +1,6 @@
 <a mat-card [routerLink]="target" router fxLayout="row" class="nav-item card white-semi-transparent" fxLayoutAlign="center"
   routerLinkActive="active-nav-item">
-  <li *ngIf="childrenItems.length==1;else dropdown" fxLayout="row" fxFlex="80" fxLayoutAlign="flex-start">
+  <li *ngIf="childrenItems.length==1;else dropdown"  (click)="sidenav_close()"  fxLayout="row" fxFlex="80" fxLayoutAlign="flex-start">
 
 
     <i fxLayoutAlign="center" fxLayout="column" class={{icon}}></i>

@@ -28,8 +28,10 @@ export class UserGroupService {
 
 
 
-    api = 'http://localhost:5500/rh/user_group';
 
+
+
+    api = environment.main_api+'/rh/user_group';
 
     constructor(private http: HttpClient) {
     }

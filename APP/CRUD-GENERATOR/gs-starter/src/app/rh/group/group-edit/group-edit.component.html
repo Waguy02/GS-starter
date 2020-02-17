@@ -1,116 +1,80 @@
 <ol class="breadcrumb float-right">
   <li class="breadcrumb-item"><a routerLink="/">Accueil</a></li>
   <li class="breadcrumb-item active">
-    Liste des Groupes
+     Groupes
   </li>
 </ol>
-
-
-
-
-
-
-
-
-
-<mat-accordion multi="true">
-  <mat-expansion-panel   expanded="true" >
-
-    <mat-expansion-panel-header class="white-semi-transparent " style="min-height: 60px" fxLayout="row" fxLayoutAlign="flex-center">
-
-
-      <h4> Informations sur le groupe</h4>
-
-
-
-    </mat-expansion-panel-header>
-    <hr>
-    <div class="card" >
-      <div class="header">
-        <h2 class="title">
-          <span *ngIf="!group._id">Création d'un group</span>
-          <span *ngIf="group._id">group</span>
-        </h2>
-      </div>
-      <div class="content">
-        <div *ngIf="feedback" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
-        <form *ngIf="group" #editForm="ngForm" (ngSubmit)="save()">
-
-
-
-          <div class="form-group">
-            <mat-form-field class="gs-mat-field" fxFlex="100">
-
-              <input matInput class="form-control" placeholder="Id" name="Id"
-                     type="text"  [(ngModel)]="group._id">
-
-            </mat-form-field>
+<div class="card">
+  <div class="header">
+    <h2 class="title">
+        <span *ngIf="!group._id">Création d'un group</span>
+        <span *ngIf="group._id">group</span>
+    </h2>
+  </div>
+  <div class="content">
+    <div *ngIf="feedback" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
+    <form *ngIf="group" #editForm="ngForm" (ngSubmit)="save()">
+      
+      
+      
+            <div class="form-group">
+                <mat-form-field class="gs-mat-field" fxFlex="100">
+                    
+                  <input matInput class="form-control" placeholder="Id" name="Id"
+                    type="text"  [(ngModel)]="group._id">
+                     
+          </mat-form-field>
           </div>
-
-
-
-          <div class="form-group">
-            <mat-form-field class="gs-mat-field" fxFlex="100">
-
-              <input matInput class="form-control" placeholder="nom" name="Name"
-                     type="text"  [(ngModel)]="group.name">
-
-            </mat-form-field>
+            
+      
+      
+            <div class="form-group">
+                <mat-form-field class="gs-mat-field" fxFlex="100">
+                    
+                  <input matInput class="form-control" placeholder="nom" name="Name"
+                    type="text"  [(ngModel)]="group.name">
+                     
+          </mat-form-field>
           </div>
-
-
-
-          <div class="form-group">
-            <mat-form-field class="gs-mat-field" fxFlex="100">
-
-              <input matInput class="form-control" placeholder="Description" name="Description"
-                     type="text"  [(ngModel)]="group.description">
-
-            </mat-form-field>
+            
+      
+      
+            <div class="form-group">
+                <mat-form-field class="gs-mat-field" fxFlex="100">
+                    
+                  <input matInput class="form-control" placeholder="Description" name="Description"
+                    type="text"  [(ngModel)]="group.description">
+                     
+          </mat-form-field>
           </div>
-
-
-
-
-          <div class="form-group">
-            <label>
-              Statut</label>
-            <mat-radio-group [(ngModel)]="group.statut" name="statut">
-              <div fxLayout="column" fxLayout.xs="column" fxLayoutGap="25">
-
-                <div>
-                  <mat-radio-button value=true fxFlex>
-                    Actif
-                  </mat-radio-button>
-                </div>
-
-                <div>
-                  <mat-radio-button value=false fxFlex>
-                    Inactif
-                  </mat-radio-button>
-                </div>
-
-              </div>
-            </mat-radio-group>
+            
+      
+      
+      
+      <div class="form-group">
+        <label>
+          Statut</label>
+        <mat-radio-group [(ngModel)]="group.statut" name="statut">
+          <div fxLayout="column" fxLayout.xs="column" fxLayoutGap="25">
+            
+            <div>
+              <mat-radio-button value=true fxFlex>
+                Actif
+              </mat-radio-button>
+            </div>
+            
+            <div>
+              <mat-radio-button value=false fxFlex>
+                Inactif
+              </mat-radio-button>
+            </div>
+            
           </div>
-
-          <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Enregistrer</button>
-          <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>
-        </form>
-      </div>
-
-    </div>
-
-  </mat-expansion-panel>
-
-
-
-  <mat-expansion-panel>
-
-      <mat-expansion-panel-header class="white-semi-transparent" fxLayout="row" fxLayoutAlign="flex-center">
-        <h2>  Utilisateurs du groupe</h2>
-      </mat-expansion-panel-header>
-    <group-TO-user [group]="group"> </group-TO-user>
-  </mat-expansion-panel>
-
-</mat-accordion>
+        </mat-radio-group>
+        </div>
+            
+            <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Enregistrer</button>
+            <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>
+    </form>
+  </div>
+</div>

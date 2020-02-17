@@ -11,8 +11,18 @@ export class NavItemComponent implements OnInit {
 
   ngOnInit() {
 
-    
+
   }
+
+
+
+  sidenav_close(){
+    let body = document.getElementsByTagName('body')[0];
+      body.classList.remove('nav-open');
+    }
+
+
+
 
   ngAfterViewInit() {
 

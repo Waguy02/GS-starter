@@ -5,7 +5,8 @@
     "target": "rh",
     "ref_order": 1,
     "api": {
-        "url": "http://localhost:5500/rh/user_group"
+        "root": "main_api",
+        "url": "rh/user_group"
     },
     "filter": [],
     "fields": [

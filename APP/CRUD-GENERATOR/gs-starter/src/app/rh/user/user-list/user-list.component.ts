@@ -23,7 +23,7 @@ export class UserListComponent implements OnInit {
 
 
   feedback: any = {};
-  private displayedColumns: string[] = ['_id','name','group','sexe','date_naissance','niveau','actions'];
+  displayedColumns: string[] = ['_id','name','group','sexe','date_naissance','niveau','actions'];
 
 
   get userList(): User[] {
