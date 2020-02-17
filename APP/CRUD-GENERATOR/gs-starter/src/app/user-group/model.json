@@ -1,6 +1,7 @@
 {
     "title": "Liste des Groupes",
     "first_entity": "user",
+  "target": "rh",
     "second_entity": "group",
     "ref_order": 1,
     "api": {
@@ -15,7 +16,7 @@
             "readonly": true,
             "type": "string"
         },
- 
+
         {
             "name": "statut",
             "label": "Statut",

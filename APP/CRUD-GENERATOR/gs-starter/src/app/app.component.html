@@ -2,11 +2,15 @@
     <div class="sidebar" data-background-color="white" data-active-color="danger">
       <app-nav></app-nav>
     </div>
-    <div class="main-panel">
-      
+    <div class="main-panel card">
+      <top-nav></top-nav>
       <div class="content">
+
+
         <router-outlet></router-outlet>
         <router-outlet name="aux"></router-outlet>
+
+
       </div>
     </div>
   </div>

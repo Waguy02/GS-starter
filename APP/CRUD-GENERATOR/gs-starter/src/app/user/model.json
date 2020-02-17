@@ -1,6 +1,7 @@
 {
   "title": "Liste des utilisateurs",
   "entity": "user",
+  "target": "rh",
   "api": {
     "url": "http://localhost:5500/rh/user"
   },
@@ -32,7 +33,7 @@
       "name": "group",
       "type": "ref",
       "type_ref":"group",
-      
+
       "required": true
     },
     {
@@ -62,8 +63,8 @@
 
 
 
-    
-    
-    
+
+
+
   ]
 }

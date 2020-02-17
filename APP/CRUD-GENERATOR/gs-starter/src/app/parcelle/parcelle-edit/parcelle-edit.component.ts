@@ -7,31 +7,31 @@ import { Parcelle} from '../parcelle';
 import { FormControl } from '@angular/forms';
 import { map, switchMap, debounceTime, tap, finalize } from 'rxjs/operators';
 import { of } from 'rxjs';
-const caster=require('gs-cast');
+const caster=require('angular-crud/gs-cast');
 
-  
-  
-  
+
+
+
     import { EspeceService } from '../../espece/espece.service';
     import { Espece} from '../../espece/espece';
     import { EspeceFilter} from '../../espece/espece-filter';
 
-  
-  
-  
+
+
+
 
 
 
 @Component({
   selector: 'app-parcelle-edit',
   templateUrl: './parcelle-edit.component.html',
-  providers:[ 
-    
-    
-    EspeceService ,  
-    
-    
-    
+  providers:[
+
+
+    EspeceService ,
+
+
+
   ]
 })
 export class ParcelleEditComponent implements OnInit {
@@ -44,10 +44,10 @@ export class ParcelleEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private parcelleService: ParcelleService,
-             private especeService: EspeceService,         
-    
-    
-    ) 
+             private especeService: EspeceService,
+
+
+    )
     {
   }
 
@@ -55,18 +55,18 @@ export class ParcelleEditComponent implements OnInit {
 
   public  initRef(){
 
-             
+
 
       var id_espece:any=this.parcelle.espece;
       this.especeService.findById(id_espece).
       subscribe(data=>{
         caster.singleCast(data,Espece);
         this.parcelle.espece=data;
-        
+
       });
 
 
-               
+
 
 
   }
@@ -95,22 +95,22 @@ export class ParcelleEditComponent implements OnInit {
         }
       );
 
-      
 
-    
-      
-      
-      
-    
+
+
+
+
+
+
           this.configureEspeceInput()
-        
-    
-    
-      
-      
-      
-      
-    
+
+
+
+
+
+
+
+
   }
 
   save() {
@@ -141,17 +141,17 @@ export class ParcelleEditComponent implements OnInit {
 
 
 
-  
-    
-    
-    
-  
-
-      
 
 
 
-  
+
+
+
+
+
+
+
+
 
   filteredEspeceList:Espece[]=new Array<Espece>();
   especeInput:FormControl;
@@ -161,24 +161,24 @@ export class ParcelleEditComponent implements OnInit {
   especeClick(event: any) {
     this.selectedEspece= event.option.value;
   }
-  
+
   checkEspece() {
     if (!this.selectedEspece|| this.selectedEspece!== this.especeInput.value) {
       this.especeInput.setValue(null);
       this.selectedEspece= null;
-      return; 
+      return;
     }
     this.parcelle.espece=this.selectedEspece;
   }
-  
+
   displayEspece(espece:Espece) {
-    
+
     if (espece) return espece.display;
-    
+
   }
   configureEspeceInput(){
     this.especeInput=new FormControl();
-  
+
     this.especeInput.valueChanges
     .pipe(
       debounceTime(500),
@@ -186,20 +186,14 @@ export class ParcelleEditComponent implements OnInit {
       switchMap(value => this.especeService.find(new EspeceFilter())
       .pipe(
         finalize(() => this.isLoadingEspece= false),
-        ) 
-        ) 
+        )
+        )
       )
     .subscribe((resultList =>{
       caster.arrayCast(resultList,Espece);
       this.filteredEspeceList=resultList;}))
-    
+
   }
-  
-    
-    
-    
-    
-  
 
 
 
@@ -211,5 +205,11 @@ export class ParcelleEditComponent implements OnInit {
 
 
 
-  
+
+
+
+
+
+
+
 }

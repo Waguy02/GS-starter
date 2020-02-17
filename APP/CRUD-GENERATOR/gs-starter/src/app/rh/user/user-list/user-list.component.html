@@ -1,0 +1,108 @@
+<ol class="breadcrumb float-right">
+  <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+  <li class="breadcrumb-item active">Liste des utilisateurs</li>
+</ol>
+<div class="card">
+  <div class="header">
+    <h2 class="title">Liste des utilisateurs </h2>
+  </div>
+  <div class="content">
+    <form #f="ngForm">
+
+      <button (click)="search()" [disabled]="!f?.valid" class="btn btn-primary">Rechercher</button>
+      <a [routerLink]="['../users', 'new' ]" class="btn btn-default">Nouveau</a>
+    </form>
+  </div>
+
+  <mat-card>
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtre">
+    </mat-form-field>
+  </mat-card>
+
+</div>
+
+
+
+
+<div  *ngIf="userList.length > 0"  class="example-container mat-elevation-z8">
+
+<mat-table class=""  [dataSource]="dataSource" matSort >
+
+    <ng-container matColumnDef="_id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header >Id</mat-header-cell>
+      <mat-cell *matCellDef="let item" class="mobile-hide">
+         <span class="mobile-label">Id : </span>
+
+        {{item._id}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header >nom</mat-header-cell>
+      <mat-cell *matCellDef="let item" class="">
+         <span class="mobile-label">nom : </span>
+
+        {{item.name}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="group">
+      <mat-header-cell *matHeaderCellDef mat-sort-header >Groupe préféré</mat-header-cell>
+      <mat-cell *matCellDef="let item" class="mobile-hide">
+         <span class="mobile-label">Groupe préféré : </span>
+
+        {{item.group}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sexe">
+      <mat-header-cell *matHeaderCellDef mat-sort-header >Sexe</mat-header-cell>
+      <mat-cell *matCellDef="let item" class="mobile-hide">
+         <span class="mobile-label">Sexe : </span>
+
+        {{item.sexe}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="date_naissance">
+      <mat-header-cell *matHeaderCellDef mat-sort-header >Date de naissance</mat-header-cell>
+      <mat-cell *matCellDef="let item" class="mobile-hide">
+         <span class="mobile-label">Date de naissance : </span>
+
+        {{item.date_naissance}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="niveau">
+      <mat-header-cell *matHeaderCellDef mat-sort-header >Niveau </mat-header-cell>
+      <mat-cell *matCellDef="let item" class="mobile-hide">
+         <span class="mobile-label">Niveau  : </span>
+
+        {{item.niveau}}
+      </mat-cell>
+    </ng-container>
+
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell class=""
+              *matCellDef="let item">
+
+      <div fxLayout="row" fxLayout.md="column" fxLayoutAlign="center">
+      <a [routerLink]="['../users', item._id ]" class="btn btn-secondary">Détails</a>&nbsp;
+      <button (click)="delete(item)" class="btn btn-danger">Supprimer</button>
+      </div>
+
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+</div>

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { map, switchMap, debounceTime, tap, finalize } from 'rxjs/operators';
 import { of } from 'rxjs';
-const caster=require('gs-cast');
+const caster=require('angular-crud/gs-cast');
 import { UserService } from '../user.service';
 import { User } from '../user';
  import { GroupService } from '../../group/group.service';
@@ -28,7 +28,7 @@ export class UserEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService,
-     private groupService: GroupService, 
+     private groupService: GroupService,
     )
     {
   }
@@ -53,10 +53,10 @@ export class UserEditComponent implements OnInit {
         }
       );
 
-       
+
         this.configureGroupInput()
-        
-        
+
+
   }
 
   save() {
@@ -84,8 +84,8 @@ export class UserEditComponent implements OnInit {
 
 
 
-   
-    
+
+
 
   filteredGroupList:Group[]=new Array<Group>();
   groupInput:FormControl;
@@ -95,24 +95,24 @@ export class UserEditComponent implements OnInit {
   groupClick(event: any) {
     this.selectedGroup= event.option.value;
   }
-  
+
   checkGroup() {
     if (!this.selectedGroup|| this.selectedGroup!== this.groupInput.value) {
       this.groupInput.setValue(null);
       this.selectedGroup= null;
-      return; 
+      return;
     }
     this.user.group=this.selectedGroup;
   }
-  
+
   displayGroup(group:Group) {
-    
+
     if (group) return group.display;
-    
+
   }
   configureGroupInput(){
     this.groupInput=new FormControl();
-  
+
     this.groupInput.valueChanges
     .pipe(
       debounceTime(500),
@@ -120,37 +120,37 @@ export class UserEditComponent implements OnInit {
       switchMap(value => this.groupService.find(new GroupFilter())
       .pipe(
         finalize(() => this.isLoadingGroup= false),
-        ) 
-        ) 
+        )
+        )
       )
     .subscribe((resultList =>{
       caster.arrayCast(resultList,Group);
       this.filteredGroupList=resultList;}))
-    
+
   }
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

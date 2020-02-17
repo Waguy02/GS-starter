@@ -5,32 +5,32 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
-  
-  
-  
+
+
+
     import { EspeceService
   } from '../espece/espece.service';
   import { Espece} from '../espece/espece';
 import { EspeceFilter} from '../espece/espece-filter';
 
-  
-  
-  
 
 
 
-const caster = require('gs-cast');
+
+
+
+const caster = require('angular-crud/gs-cast');
 const headers = new HttpHeaders().set('Accept', 'application/json');
 
 @Injectable()
 export class ParcelleService {
-  parcelleList: Parcelle[] =[]; 
+  parcelleList: Parcelle[] =[];
     api = 'http://localhost:5000/api/parcelle';
 
   constructor(private http: HttpClient,
 
-    private especeService: EspeceService, 
-    
+    private especeService: EspeceService,
+
     ) {
   }
 
@@ -46,11 +46,11 @@ load(filter: ParcelleFilter): void {
     this.parcelleList = result;
     caster.arrayCast(this.parcelleList, Parcelle)
     for (var item of result) {
-  
-     
+
+
       var id_espece: any = item.espece;
 
-      
+
         this.especeService.findById(id_espece).
           subscribe(data =>{
             caster.singleCast(data, Espece);
@@ -59,8 +59,8 @@ load(filter: ParcelleFilter): void {
           });
 
 
-        
-        
+
+
 
 
           }
@@ -78,7 +78,7 @@ load(filter: ParcelleFilter): void {
 
 find(filter: ParcelleFilter): Observable <Parcelle[] >{
   const params = {
-    'espece': filter.espece, 
+    'espece': filter.espece,
     };
 
 return this.http.get <Parcelle[] >(this.api, { params, headers });

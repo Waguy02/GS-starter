@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { map, switchMap, debounceTime, tap, finalize } from 'rxjs/operators';
 import { of } from 'rxjs';
-const caster=require('gs-cast');
+const caster=require('angular-crud/gs-cast');
 import { ParcelletestService } from '../parcelletest.service';
 import { Parcelletest } from '../parcelletest';
  import { EspeceService } from '../../espece/espece.service';
@@ -27,7 +27,7 @@ export class ParcelletestEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private parcelletestService: ParcelletestService,
-     private especeService: EspeceService, 
+     private especeService: EspeceService,
     )
     {
   }
@@ -52,10 +52,10 @@ export class ParcelletestEditComponent implements OnInit {
         }
       );
 
-       
+
         this.configureEspeceInput()
-        
-        
+
+
   }
 
   save() {
@@ -83,8 +83,8 @@ export class ParcelletestEditComponent implements OnInit {
 
 
 
-   
-    
+
+
 
   filteredEspeceList:Espece[]=new Array<Espece>();
   especeInput:FormControl;
@@ -94,24 +94,24 @@ export class ParcelletestEditComponent implements OnInit {
   especeClick(event: any) {
     this.selectedEspece= event.option.value;
   }
-  
+
   checkEspece() {
     if (!this.selectedEspece|| this.selectedEspece!== this.especeInput.value) {
       this.especeInput.setValue(null);
       this.selectedEspece= null;
-      return; 
+      return;
     }
     this.parcelletest.espece=this.selectedEspece;
   }
-  
+
   displayEspece(espece:Espece) {
-    
+
     if (espece) return espece.display;
-    
+
   }
   configureEspeceInput(){
     this.especeInput=new FormControl();
-  
+
     this.especeInput.valueChanges
     .pipe(
       debounceTime(500),
@@ -119,37 +119,37 @@ export class ParcelletestEditComponent implements OnInit {
       switchMap(value => this.especeService.find(new EspeceFilter())
       .pipe(
         finalize(() => this.isLoadingEspece= false),
-        ) 
-        ) 
+        )
+        )
       )
     .subscribe((resultList =>{
       caster.arrayCast(resultList,Espece);
       this.filteredEspeceList=resultList;}))
-    
+
   }
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

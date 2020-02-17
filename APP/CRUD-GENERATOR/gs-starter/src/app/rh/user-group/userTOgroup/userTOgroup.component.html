@@ -1,0 +1,29 @@
+<mat-card  fxLayout="column" fxLayoutAling="space-between">
+
+    <mat-card-header fxFlex="5" fxLayout="column" fxLayout="center">
+            Liste des group
+    </mat-card-header>
+
+
+    <mat-card-content style="overflow: auto" fxFlex="80" fxLayout="column" fxLayoutGap="5" fxLayoutAlign="flex-start" >
+
+        <mat-card *ngFor="let user_group of user_groupList" fxFLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
+
+                <div class="bg-transparent" fxFlex="40" fxFlex.xs="80">
+                        Informations sur le group ici
+                </div>  
+
+                <div flFlex="20">
+                            <button mat-button (click)="actionQuit(user_group)">QUITTER</button>
+                </div>
+            
+        
+        </mat-card>
+
+    </mat-card-content>
+
+
+
+
+
+</mat-card>

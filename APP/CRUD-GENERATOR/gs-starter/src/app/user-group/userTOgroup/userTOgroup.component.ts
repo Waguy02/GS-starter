@@ -3,7 +3,7 @@ import { GroupService } from './../../group/group.service';
 import { UserGroupService } from './../user-group.service';
 
 
-import { UserGroup } from '../user-group';  
+import { UserGroup } from '../user-group';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
@@ -13,18 +13,18 @@ import { map, switchMap, debounceTime, tap, finalize } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { User } from 'src/app/user/user';
 
- 
+
 import { Group } from 'src/app/group/group';
 
 
-const caster=require('gs-cast');
+const caster=require('angular-crud/gs-cast');
 
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
 
 
 
@@ -32,13 +32,13 @@ const caster=require('gs-cast');
   selector: 'user-TO-group',
   templateUrl: './userTOgroup.component.html',
   styleUrls:['./userTOgroup.scss'],
-  providers:[ 
-    
-    
+  providers:[
+
+
     GroupService
-    
-    
-    
+
+
+
   ]
 })
 export class UserToGroupComponent implements OnInit {
@@ -47,7 +47,7 @@ export class UserToGroupComponent implements OnInit {
   @Input()
   user: User
   user_groupList:UserGroup[];;
-  
+
 
   feedback: any = {};
 
@@ -56,10 +56,10 @@ export class UserToGroupComponent implements OnInit {
     private router: Router,
     private user_group_service:UserGroupService,
     private groupService:GroupService
-                      
-    
-    
-    ) 
+
+
+
+    )
     {
   }
 
@@ -73,9 +73,9 @@ export class UserToGroupComponent implements OnInit {
     var currentUser=this.user;
         this.user_group_service.findByUser(this.user).subscribe(
         data=>{
-          
+
           for(var result of data){
-            
+
             this.groupService.findById(result.group).subscribe(group=>
               {
 
@@ -88,21 +88,21 @@ export class UserToGroupComponent implements OnInit {
 
               })
           }
-        
+
         }
         )
-      
-      
-      
-      
-      
-      
-    
+
+
+
+
+
+
+
   }
 
 actionQuit(user_group){
 
-    this.user_group_service.separate(user_group);
+    this.user_group_service.separate(user_group).subscribe(data=>{console.log("Separation effectuée avec succès")},err=>{"Erreur survenue lors de la séparation"});
 }
 
 

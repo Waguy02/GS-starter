@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -12,8 +13,9 @@ import { GroupListComponent } from './group-list/group-list.component';
 import { GroupEditComponent } from './group-edit/group-edit.component';
 import { GroupService } from './group.service';
 import { GROUP_ROUTES } from './group.routes';
-import { MatAutocompleteModule, MatSpinner, MatProgressSpinnerModule, MatInputModule, 
-  MatCardModule,MatFormFieldModule, MatCheckboxModule, MatRadioModule ,MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatButtonModule} from '@angular/material';
+import { MatAutocompleteModule, MatSpinner, MatProgressSpinnerModule, MatInputModule, MatCardModule, MatFormFieldModule, MatCheckboxModule, MatRadioModule , MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatButtonModule, MatExpansionModule} from '@angular/material';
+import {UserGroupModule} from '../rh/user-group/user-group.module';
+
 
 @NgModule({
   imports: [
@@ -23,8 +25,11 @@ import { MatAutocompleteModule, MatSpinner, MatProgressSpinnerModule, MatInputMo
     FormsModule,
     MatAutocompleteModule,
     MatInputModule,
+    UserGroupModule,
     MatDatepickerModule,
     MatNativeDateModule,
+
+    MatExpansionModule,
     FlexLayoutModule,
     MatCardModule,
     MatButtonModule,
@@ -34,6 +39,7 @@ import { MatAutocompleteModule, MatSpinner, MatProgressSpinnerModule, MatInputMo
     MatSelectModule,
     MatProgressSpinnerModule,
     MatRadioModule,
+
     ReactiveFormsModule ,
     FormsModule,
     RouterModule.forChild(GROUP_ROUTES)

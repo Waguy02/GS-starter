@@ -9,26 +9,27 @@ import { NavItemComponent } from './nav-item/nav-item.component';
 import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {TopNavComponent} from './top-nav/top-nav.component';
 
 @NgModule({
-  declarations: [BaseComponent, NavItemComponent],
+  declarations: [BaseComponent, NavItemComponent , TopNavComponent],
   imports: [
     CommonModule,
     NgxNavbarModule,
     BrowserAnimationsModule,
     GsNavRoutingModule,
-    
+
     MatExpansionModule,
-    
+
     FlexLayoutModule,
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule
-    
+
   ],
   exports: [
-    BaseComponent,NavItemComponent,
+    BaseComponent, NavItemComponent, TopNavComponent
   ]
 })
 export class GsNavModule { }

@@ -161,7 +161,7 @@
       padding: 10px $margin-base-vertical 0;
 
        li {
-          
+
          a {
           margin: 0px 0px;
           color: $default-color;
@@ -437,26 +437,4 @@
 
 //overwrite table responsive for 768px screens
 
-@media (min-width: 992px) {
-  .table-full-width {
-    margin-left: -15px;
-    margin-right: -15px;
-  }
-  .table-responsive {
-    overflow: visible;
-  }
 
-}
-
-@media (max-width: 991px) {
-  .table-responsive {
-    width: 100%;
-    margin-bottom: 15px;
-    border: 1px solid #dddddd;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    -webkit-overflow-scrolling: touch;
-  }
-
-}

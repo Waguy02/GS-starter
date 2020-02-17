@@ -21,7 +21,8 @@ import { FormsModule } from '@angular/forms';
 import { MatToolbarModule, MatSelectModule, MatCardModule, MatInputModule, MatAutocompleteModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatListModule, MatProgressSpinnerModule, MatIconModule, MatButtonModule, MatSidenavModule, MatTabsModule } from '@angular/material';
 import { EspeceModule } from './espece/espece.module';
 import { ParcelleModule } from './parcelle/parcelle.module';
-import { UserModule } from './user/user.module';
+import {UserModule} from "./rh/user/user.module";
+
 
 
 @NgModule({
@@ -30,6 +31,8 @@ import { UserModule } from './user/user.module';
     AppComponent, NavComponent
   ],
   imports: [
+
+
     BrowserModule,
     BrowserAnimationsModule,
     MatSidenavModule,
@@ -42,14 +45,15 @@ import { UserModule } from './user/user.module';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    UserGroupModule,
+    UserModule,
     GsNavModule,
     TestModule,
-    UserModule,
+    UserGroupModule,
+
     GroupModule,
-    
+
     EspeceModule,
-   
+
     ParcelleModule,
     ParcelletestModule
   ],

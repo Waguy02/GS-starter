@@ -5,24 +5,24 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
-  
-  
-  
 
 
 
-const caster = require('gs-cast');
+
+
+
+const caster = require('angular-crud/gs-cast');
 const headers = new HttpHeaders().set('Accept', 'application/json');
 
 @Injectable()
 export class EspeceService {
-  especeList: Espece[] =[]; 
+  especeList: Espece[] =[];
     api = 'http://localhost:5000/api/espece';
 
   constructor(private http: HttpClient,
 
-    
-    
+
+
     ) {
   }
 
@@ -38,9 +38,9 @@ load(filter: EspeceFilter): void {
     this.especeList = result;
     caster.arrayCast(this.especeList, Espece)
     for (var item of result) {
-  
-     
-        
+
+
+
 
 
           }

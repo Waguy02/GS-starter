@@ -13,18 +13,18 @@ import { of } from 'rxjs';
 
 
 import { User } from 'src/app/user/user';
- 
-  import { Group } from 'src/app/group/group';
-  
-  
-const caster=require('gs-cast');
 
-  
-  
-  
-  
-  
-  
+  import { Group } from 'src/app/group/group';
+
+
+const caster=require('angular-crud/gs-cast');
+
+
+
+
+
+
+
 
 
 
@@ -32,13 +32,13 @@ const caster=require('gs-cast');
   selector: 'group-TO-user',
   templateUrl: './groupTOuser.component.html',
   styleUrls:['./groupTOuser.scss'],
-  providers:[ 
-    UserService 
-    
-    
-    
-    
-    
+  providers:[
+    UserService
+
+
+
+
+
   ]
 })export class GroupToUserComponent implements OnInit {
 
@@ -46,7 +46,7 @@ const caster=require('gs-cast');
   @Input()
   group: Group
     user_groupList:UserGroup[];
-  
+
 
   feedback: any = {};
 
@@ -55,10 +55,10 @@ const caster=require('gs-cast');
     private router: Router,
     private user_group_service:UserGroupService,
     private userService:UserService
-                        
-    
-    
-    ) 
+
+
+
+    )
     {
   }
 
@@ -71,50 +71,50 @@ const caster=require('gs-cast');
 
     var currentGroup=this.group;
         this.user_group_service.findByGroup(this.group).subscribe(
-          
+
 
             data=>{
               console.log("DATAS");
               console.log(data);
-              
+
               for(var result of data){
 
-                
+
                 this.userService.findById(result.user).subscribe(user=>{
-                  
-                  
+
+
                   var temp=new UserGroup();
                   Object.assign(temp,result);
                   temp.user=user;
                   temp.group=currentGroup;
                   this.user_groupList.push(temp);
-                  
-                  
-                  
-                  
+
+
+
+
                 })
               }
 
-              
-              
-            
+
+
+
             }
         )
-      
-      
-      
-      
-      
-      
-    
+
+
+
+
+
+
+
   }
 
 
 
   actionQuit(user_group){
 
-    this.user_group_service.separate(user_group).subscribe(data=>{console.log("Separation effectuée avec succès")})
-    
+    this.user_group_service.separate(user_group).subscribe(data=>{console.log("Separation effectuée avec succès")},err=>{"Erreur survenue lors de la séparation"})
+
 }
 
 
@@ -126,14 +126,6 @@ const caster=require('gs-cast');
 
 
 
-  
-    
-    
-    
-    
-    
-    
-  
 
 
 
@@ -145,5 +137,13 @@ const caster=require('gs-cast');
 
 
 
-  
+
+
+
+
+
+
+
+
+
 }

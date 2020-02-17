@@ -1,10 +1,10 @@
 
 
 
- 
+
     import { Group } from 'src/app/group/group';
-    
-    
+
+
 
 import { User} from './../user/user';
 
@@ -14,7 +14,7 @@ import { UserGroup} from './user-group';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-const caster = require('gs-cast');
+const caster = require('angular-crud/gs-cast');
 const headers = new HttpHeaders().set('Accept', 'application/json');
 
 @Injectable({
@@ -23,7 +23,7 @@ const headers = new HttpHeaders().set('Accept', 'application/json');
 export class UserGroupService {
 
 
-    
+
     api = 'http://localhost:5500/rh/user_group';
 
 
@@ -36,26 +36,26 @@ export class UserGroupService {
 
         const url = this.api+'/'+'user'+'/'+user._id;
         const params = {
-        
+
         };
-        
+
         return this.http.get(url,{params,headers});
 
     }
 
 
-    
+
 
     public findByGroup(group:Group):Observable<any>{
 
 
         const url = this.api+'/'+'group'+'/'+group._id;
         const params = {
-            
+
             };
-            
+
             return this.http.get(url,{params,headers});
-    
+
 
 
     }
@@ -77,7 +77,7 @@ export class UserGroupService {
 
 
 
-      
+
 
 
 
@@ -89,7 +89,7 @@ export class UserGroupService {
             }
                 return this.http.delete<UserGroup>(url,
                     {headers,params})
-        
+
         {
 
 

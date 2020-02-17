@@ -7,21 +7,21 @@ import { Espece} from '../espece';
 import { FormControl } from '@angular/forms';
 import { map, switchMap, debounceTime, tap, finalize } from 'rxjs/operators';
 import { of } from 'rxjs';
-const caster=require('gs-cast');
+const caster=require('angular-crud/gs-cast');
 
-  
-  
-  
+
+
+
 
 
 
 @Component({
   selector: 'app-espece-edit',
   templateUrl: './espece-edit.component.html',
-  providers:[ 
-    
-    
-    
+  providers:[
+
+
+
   ]
 })
 export class EspeceEditComponent implements OnInit {
@@ -34,10 +34,10 @@ export class EspeceEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private especeService: EspeceService,
-             
-    
-    
-    ) 
+
+
+
+    )
     {
   }
 
@@ -45,7 +45,7 @@ export class EspeceEditComponent implements OnInit {
 
   public  initRef(){
 
-             
+
 
 
   }
@@ -74,13 +74,13 @@ export class EspeceEditComponent implements OnInit {
         }
       );
 
-      
 
-    
-      
-      
-      
-    
+
+
+
+
+
+
   }
 
   save() {
@@ -111,11 +111,6 @@ export class EspeceEditComponent implements OnInit {
 
 
 
-  
-    
-    
-    
-  
 
 
 
@@ -127,5 +122,10 @@ export class EspeceEditComponent implements OnInit {
 
 
 
-  
+
+
+
+
+
+
 }
