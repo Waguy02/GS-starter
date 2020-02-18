@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { RouterModule } from '@angular/router';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { UserListComponent } from './user-list/user-list.component';
@@ -15,7 +12,6 @@ import { USER_ROUTES } from './user.routes';
 import { MatAutocompleteModule, MatSpinner, MatProgressSpinnerModule, MatInputModule,
   MatCardModule,MatFormFieldModule,MatTableModule,MatPaginatorModule,MatSortModule, MatCheckboxModule, MatRadioModule ,MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatButtonModule, MatExpansionModule} from '@angular/material';
 import Module = WebAssembly.Module;
-
 @NgModule({
   imports: [
     CommonModule,

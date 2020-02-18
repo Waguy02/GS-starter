@@ -15,6 +15,9 @@
       "app",
       "camelCase"
     ],
+    "linterOptions": {
+      "exclude": ["**/*.js"]
+    },
     "component-selector": [
       true,
       "element",

@@ -7,7 +7,7 @@
     "url": "rh/user"
   },
   "filter": [
-    "espece"
+    "name","sexe","date_naissance"
   ],
   "fields": [
     {

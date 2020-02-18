@@ -1,22 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 import { UserService } from './user.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-
 describe('UserService', () => {
   let service: UserService;
   let httpMock: HttpTestingController;
-
-  beforeEach(() => {
+beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [UserService]
     });
-
-    service = TestBed.get(UserService);
+service = TestBed.get(UserService);
     httpMock = TestBed.get(HttpTestingController);
   });
-
-  it('should be created', () => {
+it('should be created', () => {
     expect(service).toBeTruthy();
   });
 });

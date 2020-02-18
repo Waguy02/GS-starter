@@ -12,20 +12,16 @@ import { User } from '../user';
 import { Group} from "src/app/rh/group/group";
 import { GroupFilter} from "src/app/rh/group/group-filter";
 
-
-
 @Component({
   selector: 'app-user-edit',
   styleUrls:['./user-edit.scss'],
   templateUrl: './user-edit.component.html'
 })
 export class UserEditComponent implements OnInit {
-
-  id: string;
+id: string;
   user: User;
   feedback: any = {};
-
-  constructor(
+constructor(
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService,
@@ -33,8 +29,7 @@ export class UserEditComponent implements OnInit {
     )
     {
   }
-
-  ngOnInit() {
+ngOnInit() {
     this
       .route
       .params
@@ -54,13 +49,10 @@ export class UserEditComponent implements OnInit {
         }
       );
 
-      
         this.configureGroupInput()
         
-
-  }
-
-  save() {
+}
+save() {
     this.userService.save(this.user).subscribe(
       user => {
         this.user = user;
@@ -74,30 +66,18 @@ export class UserEditComponent implements OnInit {
       }
     );
   }
-
-  cancel() {
+cancel() {
     this.router.navigate(['/rh/users']);
   }
 
-
-
-
-
-
-
-  
-
-
-  filteredGroupList:Group[]=new Array<Group>();
+filteredGroupList:Group[]=new Array<Group>();
   groupInput:FormControl;
   selectedGroup:Group;
   isLoadingGroup=false;
-
-  groupClick(event: any) {
+groupClick(event: any) {
     this.selectedGroup= event.option.value;
   }
-
-  checkGroup() {
+checkGroup() {
     if (!this.selectedGroup|| this.selectedGroup!== this.groupInput.value) {
       this.groupInput.setValue(null);
       this.selectedGroup= null;
@@ -105,16 +85,12 @@ export class UserEditComponent implements OnInit {
     }
     this.user.group=this.selectedGroup;
   }
-
-  displayGroup(group:Group) {
-
-    if (group) return group.display;
-
-  }
+displayGroup(group:Group) {
+if (group) return group.display;
+}
   configureGroupInput(){
     this.groupInput=new FormControl();
-
-    this.groupInput.valueChanges
+this.groupInput.valueChanges
     .pipe(
       debounceTime(500),
       tap(() => {this.isLoadingGroup= true;}),
@@ -127,41 +103,6 @@ export class UserEditComponent implements OnInit {
     .subscribe((resultList =>{
       caster.arrayCast(resultList,Group);
       this.filteredGroupList=resultList;}))
-
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
 }
 
-
+}

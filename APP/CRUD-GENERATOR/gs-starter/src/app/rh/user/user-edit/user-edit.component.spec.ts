@@ -4,12 +4,10 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { UserEditComponent } from './user-edit.component';
 import { UserService } from '../user.service';
-
 describe('UserEditComponent', () => {
   let component: UserEditComponent;
   let fixture: ComponentFixture<UserEditComponent>;
-
-  beforeEach(async(() => {
+beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [UserEditComponent],
       imports: [FormsModule, HttpClientTestingModule, RouterTestingModule],
@@ -17,14 +15,12 @@ describe('UserEditComponent', () => {
     })
       .compileComponents();
   }));
-
-  beforeEach(() => {
+beforeEach(() => {
     fixture = TestBed.createComponent(UserEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  it('should create', () => {
+it('should create', () => {
     expect(component).toBeTruthy();
   });
 });
