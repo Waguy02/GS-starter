@@ -14,30 +14,30 @@
   <div class="content">
     <div *ngIf="feedback" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
     <form *ngIf="user" #editForm="ngForm" (ngSubmit)="save()">
-      
-      
-      
+
+
+
             <div class="form-group">
                 <mat-form-field class="gs-mat-field" fxFlex="100">
-                    
+
                   <input matInput class="form-control" placeholder="Id" name="Id"
                     type="text"  [(ngModel)]="user._id">
-                     
+
           </mat-form-field>
           </div>
-            
-      
-      
+
+
+
             <div class="form-group">
                 <mat-form-field class="gs-mat-field" fxFlex="100">
-                    
+
                   <input matInput class="form-control" placeholder="nom" name="Name"
                     type="text"  [(ngModel)]="user.name">
-                     
+
           </mat-form-field>
           </div>
-            
-      
+
+
       <div class="form-group">
          <mat-form-field  class="gs-mat-field" fxFlex="100">
           <input matInput class="form-control" placeholder="Group" name="Group"
@@ -51,54 +51,56 @@
           <ng-container *ngIf="!isLoadingGroup">
             <mat-option *ngFor="let group of filteredGroupList" [value]="group">
               <span>{{
-                group.display}}</span>
+                group}}</span>
             </mat-option>
           </ng-container>
         </mat-autocomplete>
  </div>
-      
-      
-      
-      
-            
+
+
+
+
+
               <div class="form-group">
             <mat-form-field class="gs-mat-field" fxFlex="100">
                 <mat-label>Sexe</mat-label>
                 <mat-select [(value)]="user.sexe">
-                  
+
                   <mat-option value=M> Masculin</mat-option>
-                  
+
                   <mat-option value=F> Féminin</mat-option>
-                  
+
 </mat-select>
               </mat-form-field>
             </div>
-           
-      
-      
+
+
+
             <div class="form-group">
                 <mat-form-field class="gs-mat-field" fxFlex="100">
-                    
+
                     <input matInput [matDatepicker]="datepicker" placeholder="Date de naissance" [(ngModel)]="user.date_naissance" name="DateNaissance"                                           required   >
                     <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
                     <mat-datepicker touchUi="true" #datepicker></mat-datepicker>
-                    
+
           </mat-form-field>
           </div>
-            
-      
-      
+
+
+
             <div class="form-group">
                 <mat-form-field class="gs-mat-field" fxFlex="100">
-                    
+
                   <input matInput class="form-control" placeholder="Niveau " name="Niveau"
                     type="text"  [(ngModel)]="user.niveau">
-                     
+
           </mat-form-field>
           </div>
-            
+
             <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Enregistrer</button>
             <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>
     </form>
   </div>
 </div>
+
+<user-TO-group [user]="user"> </user-TO-group>

@@ -1,11 +1,11 @@
+@import "src/assets/color-themes/deep-blue/main";
 .nav {
 
     padding:10px;
 }
 
 
-
 .base {
 
-    background: linear-gradient(white,lightblue);
+    background:$main-color;
 }

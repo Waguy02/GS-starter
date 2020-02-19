@@ -86,7 +86,7 @@ checkGroup() {
     this.user.group=this.selectedGroup;
   }
 displayGroup(group:Group) {
-if (group) return group.display;
+if (group) return group
 }
   configureGroupInput(){
     this.groupInput=new FormControl();

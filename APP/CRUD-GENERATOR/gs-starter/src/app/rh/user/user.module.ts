@@ -9,9 +9,11 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { UserService } from './user.service';
 import { USER_ROUTES } from './user.routes';
+import {MatIconModule} from '@angular/material/icon';
 import { MatAutocompleteModule, MatSpinner, MatProgressSpinnerModule, MatInputModule,
   MatCardModule,MatFormFieldModule,MatTableModule,MatPaginatorModule,MatSortModule, MatCheckboxModule, MatRadioModule ,MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatButtonModule, MatExpansionModule} from '@angular/material';
 import Module = WebAssembly.Module;
+import {UserGroupModule} from "../user-group/user-group.module";
 @NgModule({
   imports: [
     CommonModule,
@@ -25,6 +27,8 @@ import Module = WebAssembly.Module;
     MatExpansionModule,
     FlexLayoutModule,
     MatCardModule,
+    MatExpansionModule,
+    MatIconModule,
     MatButtonModule,
     MatSelectModule,
     MatCheckboxModule,
@@ -34,6 +38,7 @@ import Module = WebAssembly.Module;
     MatProgressSpinnerModule,
     MatRadioModule,
     ReactiveFormsModule ,
+    UserGroupModule,
     FormsModule,
     RouterModule.forChild(USER_ROUTES)
   ],

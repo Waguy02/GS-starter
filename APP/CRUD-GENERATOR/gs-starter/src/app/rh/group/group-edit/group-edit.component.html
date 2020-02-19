@@ -51,28 +51,20 @@
       
       
       
-      <div class="form-group">
-        <label>
-          Statut</label>
-        <mat-radio-group [(ngModel)]="group.statut" name="statut">
-          <div fxLayout="column" fxLayout.xs="column" fxLayoutGap="25">
             
-            <div>
-              <mat-radio-button value=true fxFlex>
-                Actif
-              </mat-radio-button>
+              <div class="form-group">
+            <mat-form-field class="gs-mat-field" fxFlex="100">
+                <mat-label>Statut</mat-label>
+                <mat-select [(value)]="group.statut">
+                  
+                  <mat-option value=true> Actif</mat-option>
+                  
+                  <mat-option value=false> Inactif</mat-option>
+                  
+</mat-select>
+              </mat-form-field>
             </div>
-            
-            <div>
-              <mat-radio-button value=false fxFlex>
-                Inactif
-              </mat-radio-button>
-            </div>
-            
-          </div>
-        </mat-radio-group>
-        </div>
-            
+           
             <button type="submit" class="btn btn-primary" [disabled]="!editForm.form.valid">Enregistrer</button>
             <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>
     </form>

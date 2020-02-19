@@ -4,12 +4,10 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { GroupListComponent } from './group-list.component';
 import { GroupService } from '../group.service';
-
 describe('GroupListComponent', () => {
   let component: GroupListComponent;
   let fixture: ComponentFixture<GroupListComponent>;
-
-  beforeEach(async(() => {
+beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [GroupListComponent],
       imports: [FormsModule, HttpClientTestingModule, RouterTestingModule],
@@ -17,14 +15,12 @@ describe('GroupListComponent', () => {
     })
       .compileComponents();
   }));
-
-  beforeEach(() => {
+beforeEach(() => {
     fixture = TestBed.createComponent(GroupListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  it('should create', () => {
+it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

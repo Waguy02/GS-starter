@@ -4,26 +4,32 @@
   <li class="breadcrumb-item active">Liste des utilisateurs</li>
 </ol>
 <div class="card">
-  <div class="header">
-    <h2 class="title">Liste des utilisateurs </h2>
-  </div>
+
   <div class="content">
-    <button (click)="search()" [disabled]="!f?.valid" class="btn btn-primary">Rechercher</button>
+
     <a [routerLink]="['../users', 'new' ]" class="btn btn-default">Nouveau</a>
     <hr>
-    <mat-card class="white-transparent" >
-<mat-card-header  class="bg-transparent">
+
+      <mat-expansion-panel class="white-transparent" style="padding :2px" expanded="true">
+        <mat-expansion-panel-header class="header">
+
         <p class="lead strong">
         Filtres de recherches
         </p>
         <hr>
-      </mat-card-header>
+
+        </mat-expansion-panel-header>
+
 <mat-card-content class="bg-transparent" fxLayout="row" fxLayoutGap="18px" fxLayoutAlign="flex-start" fxLayout.xs="column" fxLayoutAlign.xs="flex-start"  fxLayout="row">
       
         <mat-card  class="white-transparent">
         <mat-card-header class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
-            <p class="bold">nom</p>
-            <button class="btn " (click)="nameFilter.reset()" >reset </button>
+            <p fxFlex class="bold">nom</p>
+
+          <button style="border:none;background: transparent"  (click)="nameFilter.reset()" fxFlex>
+          <i class="ti-reload"></i>
+          </button>
+
         </mat-card-header>
       <mat-card-content class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
     
@@ -39,8 +45,12 @@
       
         <mat-card  class="white-transparent">
         <mat-card-header class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
-            <p class="bold">Sexe</p>
-            <button class="btn " (click)="sexeFilter.reset()" >reset </button>
+            <p fxFlex class="bold">Sexe</p>
+
+          <button style="border:none;background: transparent"  (click)="sexeFilter.reset()" fxFlex>
+          <i class="ti-reload"></i>
+          </button>
+
         </mat-card-header>
       <mat-card-content class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
     
@@ -66,8 +76,12 @@
       
         <mat-card  class="white-transparent">
         <mat-card-header class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
-            <p class="bold">Date de naissance</p>
-            <button class="btn " (click)="date_naissanceFilter.reset()" >reset </button>
+            <p fxFlex class="bold">Date de naissance</p>
+
+          <button style="border:none;background: transparent"  (click)="date_naissanceFilter.reset()" fxFlex>
+          <i class="ti-reload"></i>
+          </button>
+
         </mat-card-header>
       <mat-card-content class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
     
@@ -94,7 +108,7 @@
       </mat-card-content></mat-card>
       
       </mat-card-content>
-</mat-card>
+      </mat-expansion-panel>
   </div>
 </div>
 <div  *ngIf="userList.length > 0"  class="example-container mat-elevation-z8">

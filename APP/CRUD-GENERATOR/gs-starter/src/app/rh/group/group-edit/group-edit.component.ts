@@ -8,20 +8,16 @@ const caster=require('angular-crud/gs-cast');
 import { GroupService } from '../group.service';
 import { Group } from '../group';
 
-
-
 @Component({
   selector: 'app-group-edit',
   styleUrls:['./group-edit.scss'],
   templateUrl: './group-edit.component.html'
 })
 export class GroupEditComponent implements OnInit {
-
-  id: string;
+id: string;
   group: Group;
   feedback: any = {};
-
-  constructor(
+constructor(
     private route: ActivatedRoute,
     private router: Router,
     private groupService: GroupService,
@@ -29,8 +25,7 @@ export class GroupEditComponent implements OnInit {
     )
     {
   }
-
-  ngOnInit() {
+ngOnInit() {
     this
       .route
       .params
@@ -50,11 +45,8 @@ export class GroupEditComponent implements OnInit {
         }
       );
 
-      
-
-  }
-
-  save() {
+}
+save() {
     this.groupService.save(this.group).subscribe(
       group => {
         this.group = group;
@@ -68,28 +60,8 @@ export class GroupEditComponent implements OnInit {
       }
     );
   }
-
-  cancel() {
+cancel() {
     this.router.navigate(['/rh/groups']);
   }
 
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
 }
-
-

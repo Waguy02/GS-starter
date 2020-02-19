@@ -5,49 +5,39 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 const headers = new HttpHeaders().set('Accept', 'application/json');
-
 @Injectable()
 export class GroupService {
   groupList: Group[] = [];
   api = environment.main_api+'/rh/group';
-
-  constructor(private http: HttpClient) {
+constructor(private http: HttpClient) {
   }
-
-  findById(id: string): Observable<Group> {
+findById(id: string): Observable<Group> {
     const url = `${this.api}/${id}`;
     const params = { _id: id };
     return this.http.get<Group>(url, {params, headers});
   }
-
-
-
-  load(filter: GroupFilter): any {
-
-    var p=this;
+load(filter: GroupFilter): any {
+var p=this;
     return new Promise(function (resolve, reject) {
-
-      p.find(filter).subscribe(result => {
+p.find(filter).subscribe(result => {
           p.groupList = result;
           resolve(true);
         },
         err => {
-
-          reject(err)
+reject(err)
           console.error('error loading', err);
         }
       );
     });
   }
-
-  find(filter: GroupFilter): Observable<Group[]> {
+find(filter: GroupFilter): Observable<Group[]> {
     const params = {
+      'name': filter.name,
+      'description': filter.description,
     };
-
-    return this.http.get<Group[]>(this.api, {params, headers});
+return this.http.get<Group[]>(this.api, {params, headers});
   }
-
-  save(entity: Group): Observable<Group> {
+save(entity: Group): Observable<Group> {
     let params = new HttpParams();
     let url = '';
     if (entity._id) {
@@ -59,8 +49,7 @@ export class GroupService {
       return this.http.post<Group>(url, entity, {headers, params});
     }
   }
-
-  delete(entity: Group): Observable<Group> {
+delete(entity: Group): Observable<Group> {
     let params = new HttpParams();
     let url = '';
     if (entity._id) {
@@ -71,4 +60,3 @@ export class GroupService {
     return null;
   }
 }
-

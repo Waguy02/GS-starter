@@ -1,33 +1,73 @@
+
 <ol class="breadcrumb float-right">
   <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
   <li class="breadcrumb-item active"> Groupes</li>
 </ol>
 <div class="card">
-  <div class="header">
-    <h2 class="title"> Groupes </h2>
-  </div>
+
   <div class="content">
-    <form #f="ngForm">
+
+    <a [routerLink]="['../groups', 'new' ]" class="btn btn-default">Nouveau</a>
+    <hr>
+
+      <mat-expansion-panel class="white-transparent" style="padding :2px" expanded="true">
+        <mat-expansion-panel-header class="header">
+
+        <p class="lead strong">
+        Filtres de recherches
+        </p>
+        <hr>
+
+        </mat-expansion-panel-header>
+
+<mat-card-content class="bg-transparent" fxLayout="row" fxLayoutGap="18px" fxLayoutAlign="flex-start" fxLayout.xs="column" fxLayoutAlign.xs="flex-start"  fxLayout="row">
       
+        <mat-card  class="white-transparent">
+        <mat-card-header class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
+            <p fxFlex class="bold">nom</p>
+
+          <button style="border:none;background: transparent"  (click)="nameFilter.reset()" fxFlex>
+          <i class="ti-reload"></i>
+          </button>
+
+        </mat-card-header>
+      <mat-card-content class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
+    
 
 
 
-      <button (click)="search()" [disabled]="!f?.valid" class="btn btn-primary">Rechercher</button>
-      <a [routerLink]="['../groups', 'new' ]" class="btn btn-default">Nouveau</a>
-    </form>
+
+<mat-form-field>
+        <input matInput class="" placeholder="val" name="name.val" [formControl]="nameFilter.controls.val" >
+        </mat-form-field>
+
+      </mat-card-content></mat-card>
+      
+        <mat-card  class="white-transparent">
+        <mat-card-header class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
+            <p fxFlex class="bold">Description</p>
+
+          <button style="border:none;background: transparent"  (click)="descriptionFilter.reset()" fxFlex>
+          <i class="ti-reload"></i>
+          </button>
+
+        </mat-card-header>
+      <mat-card-content class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
+    
+
+
+
+
+<mat-form-field>
+        <input matInput class="" placeholder="val" name="description.val" [formControl]="descriptionFilter.controls.val" >
+        </mat-form-field>
+
+      </mat-card-content></mat-card>
+      
+      </mat-card-content>
+      </mat-expansion-panel>
   </div>
-
-  <mat-card>
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtre">
-    </mat-form-field>
-  </mat-card>
-
 </div>
-
-
-
-
 <div  *ngIf="groupList.length > 0"  class="example-container mat-elevation-z8">
   
 <mat-table class=""  [dataSource]="dataSource" matSort >
@@ -36,8 +76,7 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header >Id</mat-header-cell>
       <mat-cell *matCellDef="let item" class="mobile-hide">
          <span class="mobile-label">Id : </span>
-
-        {{item._id}}
+{{item._id}}
       </mat-cell>
     </ng-container>
   
@@ -45,8 +84,7 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header >nom</mat-header-cell>
       <mat-cell *matCellDef="let item" class="mobile-hide">
          <span class="mobile-label">nom : </span>
-
-        {{item.name}}
+{{item.name}}
       </mat-cell>
     </ng-container>
   
@@ -54,8 +92,7 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header >Description</mat-header-cell>
       <mat-cell *matCellDef="let item" class="mobile-hide">
          <span class="mobile-label">Description : </span>
-
-        {{item.description}}
+{{item.description}}
       </mat-cell>
     </ng-container>
   
@@ -63,31 +100,22 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header >Statut</mat-header-cell>
       <mat-cell *matCellDef="let item" class="mobile-hide">
          <span class="mobile-label">Statut : </span>
-
-        {{item.statut}}
+{{item.statut}}
       </mat-cell>
     </ng-container>
   
-
-  <ng-container matColumnDef="actions">
+<ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>
     <mat-cell class=""
               *matCellDef="let item">
-
-      <div fxLayout="row" fxLayout.md="column" fxLayoutAlign="center">
+<div fxLayout="row" fxLayout.md="column" fxLayoutAlign="center">
       <a [routerLink]="['../groups', item._id ]" class="btn btn-secondary">Détails</a>&nbsp;
       <button (click)="delete(item)" class="btn btn-danger">Supprimer</button>
       </div>
-
-    </mat-cell>
+</mat-cell>
   </ng-container>
-
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-
-    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-
-  </mat-table>
-
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-
+<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>
