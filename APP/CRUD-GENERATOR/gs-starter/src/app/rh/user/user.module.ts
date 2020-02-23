@@ -24,7 +24,6 @@ import {UserGroupModule} from "../user-group/user-group.module";
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatExpansionModule,
     FlexLayoutModule,
     MatCardModule,
     MatExpansionModule,
@@ -36,9 +35,9 @@ import {UserGroupModule} from "../user-group/user-group.module";
     MatFormFieldModule,
     MatSelectModule,
     MatProgressSpinnerModule,
+    UserGroupModule,
     MatRadioModule,
     ReactiveFormsModule ,
-    UserGroupModule,
     FormsModule,
     RouterModule.forChild(USER_ROUTES)
   ],

@@ -33,8 +33,10 @@ reject(err)
 find(filter: UserFilter): Observable<User[]> {
     const params = {
       'name': filter.name,
+      'firstname': filter.firstname,
       'sexe': filter.sexe,
       'date_naissance': filter.date_naissance,
+      'niveau': filter.niveau,
     };
 return this.http.get<User[]>(this.api, {params, headers});
   }

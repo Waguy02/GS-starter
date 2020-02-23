@@ -16,14 +16,18 @@ selectedUser: User;
 @ViewChild(MatSort,null) sort: MatSort;
 dataSource: MatTableDataSource<User>;
  feedback: any = {};
- displayedColumns: string[] = ['_id','name','group','sexe','date_naissance','niveau','actions'];
+ displayedColumns: string[] = ['_id','name','firstname','group','sexe','date_naissance','niveau','actions'];
  server_processing:boolean=false;
 
   nameFilter:GsFilter;
   
+  firstnameFilter:GsFilter;
+  
   sexeFilter:GsFilter;
   
   date_naissanceFilter:GsFilter;
+  
+  niveauFilter:GsFilter;
   
   filteredValues: any;
 initFilters(){
@@ -31,6 +35,11 @@ initFilters(){
         this.nameFilter=new GsFilter();
 
         this.nameFilter.controls.val=new FormControl();
+        
+
+        this.firstnameFilter=new GsFilter();
+
+        this.firstnameFilter.controls.val=new FormControl();
         
 
         this.sexeFilter=new GsFilter();
@@ -45,7 +54,12 @@ this.date_naissanceFilter.controls.max=new FormControl();
 this.date_naissanceFilter.controls.val=new FormControl();
 
 
-    this.filteredValues={  name:this.nameFilter.values,      sexe:this.sexeFilter.values,      date_naissance:this.date_naissanceFilter.values,      }
+        this.niveauFilter=new GsFilter();
+
+        this.niveauFilter.controls.val=new FormControl();
+        
+
+    this.filteredValues={  name:this.nameFilter.values,      firstname:this.firstnameFilter.values,      sexe:this.sexeFilter.values,      date_naissance:this.date_naissanceFilter.values,      niveau:this.niveauFilter.values,      }
   }
 public applyFilter(){
     this.dataSource.filter = JSON.stringify(this.filteredValues);
@@ -54,6 +68,11 @@ public  enableFiltering() {
     
       
         this.nameFilter.controls.val.valueChanges.subscribe((value) => {this.nameFilter.values.val = value;this.applyFilter();});
+        
+
+      
+      
+        this.firstnameFilter.controls.val.valueChanges.subscribe((value) => {this.firstnameFilter.values.val = value;this.applyFilter();});
         
 
       
@@ -67,6 +86,11 @@ public  enableFiltering() {
         this.date_naissanceFilter.controls.min.valueChanges.subscribe((value)=>{this.date_naissanceFilter.values.min=value;this.applyFilter();})
         this.date_naissanceFilter.controls.max.valueChanges.subscribe((value)=>{this.date_naissanceFilter.values.max=value;this.applyFilter();})
           
+      
+        this.niveauFilter.controls.val.valueChanges.subscribe((value) => {this.niveauFilter.values.val = value;this.applyFilter();});
+        
+
+      
 
     this.dataSource.filterPredicate =
       (user: User, filters: string) => {
@@ -74,9 +98,13 @@ public  enableFiltering() {
       
         let nameCheck =true
           
+        let firstnameCheck =true
+          
         let sexeCheck =true
           
         let date_naissanceCheck =true
+          
+        let niveauCheck =true
           
       
         
@@ -85,6 +113,14 @@ public  enableFiltering() {
         
               if (parsedFilters.name.val) {
                 nameCheck =!user.name?false: user.name.toLowerCase().includes(parsedFilters.name.val.toLowerCase());
+              }
+              
+        
+
+          
+        
+              if (parsedFilters.firstname.val) {
+                firstnameCheck =!user.name?false: user.firstname.toLowerCase().includes(parsedFilters.firstname.val.toLowerCase());
               }
               
         
@@ -106,7 +142,15 @@ public  enableFiltering() {
             }
           }
           
-      return   nameCheck&&sexeCheck&&date_naissanceCheck&&true;
+        
+
+          
+        
+              if (parsedFilters.niveau.val) {
+                niveauCheck =!user.name?false: user.niveau.toLowerCase().includes(parsedFilters.niveau.val.toLowerCase());
+              }
+              
+      return   nameCheck&&firstnameCheck&&sexeCheck&&date_naissanceCheck&&niveauCheck&&true;
     }
 }
 

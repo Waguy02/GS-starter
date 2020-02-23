@@ -45,6 +45,27 @@
       
         <mat-card  class="white-transparent">
         <mat-card-header class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
+            <p fxFlex class="bold">Prénom</p>
+
+          <button style="border:none;background: transparent"  (click)="firstnameFilter.reset()" fxFlex>
+          <i class="ti-reload"></i>
+          </button>
+
+        </mat-card-header>
+      <mat-card-content class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
+    
+
+
+
+
+<mat-form-field>
+        <input matInput class="" placeholder="val" name="firstname.val" [formControl]="firstnameFilter.controls.val" >
+        </mat-form-field>
+
+      </mat-card-content></mat-card>
+      
+        <mat-card  class="white-transparent">
+        <mat-card-header class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
             <p fxFlex class="bold">Sexe</p>
 
           <button style="border:none;background: transparent"  (click)="sexeFilter.reset()" fxFlex>
@@ -107,6 +128,27 @@
 
       </mat-card-content></mat-card>
       
+        <mat-card  class="white-transparent">
+        <mat-card-header class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
+            <p fxFlex class="bold">Niveau </p>
+
+          <button style="border:none;background: transparent"  (click)="niveauFilter.reset()" fxFlex>
+          <i class="ti-reload"></i>
+          </button>
+
+        </mat-card-header>
+      <mat-card-content class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
+    
+
+
+
+
+<mat-form-field>
+        <input matInput class="" placeholder="val" name="niveau.val" [formControl]="niveauFilter.controls.val" >
+        </mat-form-field>
+
+      </mat-card-content></mat-card>
+      
       </mat-card-content>
       </mat-expansion-panel>
   </div>
@@ -128,6 +170,14 @@
       <mat-cell *matCellDef="let item" class="mobile-hide">
          <span class="mobile-label">nom : </span>
 {{item.name}}
+      </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="firstname">
+      <mat-header-cell *matHeaderCellDef mat-sort-header >Prénom</mat-header-cell>
+      <mat-cell *matCellDef="let item" class="mobile-hide">
+         <span class="mobile-label">Prénom : </span>
+{{item.firstname}}
       </mat-cell>
     </ng-container>
   

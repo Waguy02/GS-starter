@@ -1,10 +1,11 @@
-<ol class="breadcrumb float-right">
+<ol class="breadcrumb float-right " *ngIf="user">
   <li class="breadcrumb-item"><a routerLink="/">Accueil</a></li>
-  <li class="breadcrumb-item active">
-    Liste des utilisateurs
-  </li>
+  <li class="breadcrumb-item active"><a routerLink="/rh/users"> Liste des utilisateurs </a> </li>
+  <li class="breadcrumb-item active"> <span *ngIf="!user._id">Création d'un user</span> <span *ngIf="user._id">{{user._id}}</span> </li>
 </ol>
-<div class="card">
+
+
+<div class="card" *ngIf="user">
   <div class="header">
     <h2 class="title">
         <span *ngIf="!user._id">Création d'un user</span>
@@ -38,6 +39,17 @@
           </div>
 
 
+
+            <div class="form-group">
+                <mat-form-field class="gs-mat-field" fxFlex="100">
+
+                  <input matInput class="form-control" placeholder="Prénom" name="Firstname"
+                    type="text"  [(ngModel)]="user.firstname">
+
+          </mat-form-field>
+          </div>
+
+
       <div class="form-group">
          <mat-form-field  class="gs-mat-field" fxFlex="100">
           <input matInput class="form-control" placeholder="Group" name="Group"
@@ -66,7 +78,7 @@
                 <mat-label>Sexe</mat-label>
                 <mat-select [(value)]="user.sexe">
 
-                  <mat-option value=M> Masculin</mat-option>
+                  <mat-option value="M"> Masculin</mat-option>
 
                   <mat-option value=F> Féminin</mat-option>
 
@@ -102,5 +114,4 @@
     </form>
   </div>
 </div>
-
-<user-TO-group [user]="user"> </user-TO-group>
+<user-TO-group *ngIf="user" [user]="user"></user-TO-group>

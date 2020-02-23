@@ -7,7 +7,7 @@
     "url": "rh/user"
   },
   "filter": [
-    "name","sexe","date_naissance"
+    "name","prenom","sexe","date_naissance","niveau"
   ],
   "fields": [
     {
@@ -23,6 +23,16 @@
       "type": "string",
       "required": true
     },
+    {
+      "name": "fisrtname",
+      "label":"Prénom",
+      "type": "string",
+      "required": true
+    },
+
+
+
+
     {
       "label":"Groupe préféré",
       "name": "group",

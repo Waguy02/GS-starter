@@ -1,0 +1,46 @@
+
+.mobile-label {
+  display: none;
+
+}
+
+
+
+
+
+@media(max-width: 600px) {
+// Custom header label that shows in each column, with a set width and bold font
+.mobile-label {
+  width: 80px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+// Remove the header row altogether
+   .mat-header-row {
+     display: none;
+   }
+
+
+
+// The row cells should display as a column, justified left, with a bit of extra padding
+
+  .mat-row {
+     flex-direction: column;
+     align-items:center;
+    max-height: 150px;
+
+      margin:10px;
+    border-style:inset;
+    border-width: 0.8px;
+    border-radius:0.2em;
+   }
+
+
+  .mobile-hide {
+    display: none;
+
+  }
+
+
+}

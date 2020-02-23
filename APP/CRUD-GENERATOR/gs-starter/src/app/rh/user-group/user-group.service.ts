@@ -34,10 +34,10 @@ const url = this.api+'/'+'group'+'/'+group._id;
 };
 return this.http.get(url,{params,headers});
 }
-public link(userGroup:UserGroup){
+public link(user_group:UserGroup){
 const params ={
 }
-            return this.http.post<UserGroup>(this.api,userGroup,
+            return this.http.post<UserGroup>(this.api,user_group,
                 {headers,params})
 }
 public separate(user_group:UserGroup){
@@ -46,7 +46,14 @@ const url = this.api+"/"+user_group._id;
             }
                 return this.http.delete<UserGroup>(url,
                     {headers,params})
-{
-}
+
     }
+
+public update(user_group:UserGroup){
+    const url = this.api+"/"+user_group._id;
+    const params ={
+    }
+    return this.http.put<UserGroup>(url,user_group, {headers,params})
+
+  }
 }

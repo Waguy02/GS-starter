@@ -51,7 +51,7 @@
         "label":"Statut",
         "type":"boolean",
         "control":"list",
-        "list_display":"dropdown",
+        "list_display":"checkbox",
         "list_options":[
             {"label":"Actif","value":true},
             {"label":"Inactif","value":false}
