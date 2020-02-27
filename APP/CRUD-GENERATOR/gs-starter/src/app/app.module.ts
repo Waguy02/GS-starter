@@ -19,12 +19,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatToolbarModule, MatSelectModule, MatCardModule, MatInputModule, MatAutocompleteModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatListModule, MatProgressSpinnerModule, MatIconModule, MatButtonModule, MatSidenavModule, MatTabsModule } from '@angular/material';
-import { EspeceModule } from './espece/espece.module';
-import { ParcelleModule } from './parcelle/parcelle.module';
 import {UserModule} from "./rh/user/user.module";
-import {GroupModule} from "./rh/group/group.module";
+
 import {UserGroupModule} from "./rh/user-group/user-group.module";
   import {ConfigurationService} from "./configuration/configuration.service";
+import {GroupModule} from "./rh/group/group.module";
 
 
 
@@ -50,15 +49,12 @@ import {UserGroupModule} from "./rh/user-group/user-group.module";
     AppRoutingModule,
 
     UserModule,
+    GroupModule,
     GsNavModule,
     TestModule,
     UserGroupModule,
 
-    GroupModule,
 
-    EspeceModule,
-
-    ParcelleModule,
 
   ],
   providers: [{

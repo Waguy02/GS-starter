@@ -21,7 +21,7 @@ function createWindow () {
     })
   );
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+//  mainWindow.webContents.openDevTools()
 
   mainWindow.on('closed', function () {
     mainWindow = null
@@ -37,4 +37,4 @@ app.on('window-all-closed', function () {
 app.on('activate', function () {
   if (mainWindow === null) createWindow()
 })
-m
+

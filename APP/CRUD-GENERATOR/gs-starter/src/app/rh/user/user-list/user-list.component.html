@@ -21,7 +21,7 @@
         </mat-expansion-panel-header>
 
 <mat-card-content class="bg-transparent" fxLayout="row" fxLayoutGap="18px" fxLayoutAlign="flex-start" fxLayout.xs="column" fxLayoutAlign.xs="flex-start"  fxLayout="row">
-      
+
         <mat-card  class="white-transparent">
         <mat-card-header class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
             <p fxFlex class="bold">nom</p>
@@ -32,7 +32,7 @@
 
         </mat-card-header>
       <mat-card-content class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
-    
+
 
 
 
@@ -42,7 +42,7 @@
         </mat-form-field>
 
       </mat-card-content></mat-card>
-      
+
         <mat-card  class="white-transparent">
         <mat-card-header class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
             <p fxFlex class="bold">Prénom</p>
@@ -53,7 +53,7 @@
 
         </mat-card-header>
       <mat-card-content class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
-    
+
 
 
 
@@ -63,7 +63,7 @@
         </mat-form-field>
 
       </mat-card-content></mat-card>
-      
+
         <mat-card  class="white-transparent">
         <mat-card-header class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
             <p fxFlex class="bold">Sexe</p>
@@ -74,19 +74,19 @@
 
         </mat-card-header>
       <mat-card-content class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
-    
 
 
-          
+
+
 
 <mat-form-field class="gs-mat-field" fxFlex="100">
           <mat-label>Sexe</mat-label>
           <mat-select  [formControl]="sexeFilter.controls.val">
-            
+
             <mat-option value=M> Masculin</mat-option>
-            
+
             <mat-option value=F> Féminin</mat-option>
-            
+
           </mat-select>
         </mat-form-field>
 
@@ -94,7 +94,7 @@
 
 
       </mat-card-content></mat-card>
-      
+
         <mat-card  class="white-transparent">
         <mat-card-header class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
             <p fxFlex class="bold">Date de naissance</p>
@@ -105,7 +105,7 @@
 
         </mat-card-header>
       <mat-card-content class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
-    
+
         <mat-form-field fxFlex="30">
           <input matInput [matDatepicker]="dpdate_naissanceMin" placeholder="latest" [formControl]="date_naissanceFilter.controls.min" name="DateNaissance" >
           <mat-datepicker-toggle matSuffix [for]="dpdate_naissanceMin"></mat-datepicker-toggle>
@@ -127,7 +127,7 @@
 
 
       </mat-card-content></mat-card>
-      
+
         <mat-card  class="white-transparent">
         <mat-card-header class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
             <p fxFlex class="bold">Niveau </p>
@@ -138,7 +138,7 @@
 
         </mat-card-header>
       <mat-card-content class="white-transparent" fxLayout="row" fxLayoutAlign="space-between">
-    
+
 
 
 
@@ -148,15 +148,15 @@
         </mat-form-field>
 
       </mat-card-content></mat-card>
-      
+
       </mat-card-content>
       </mat-expansion-panel>
   </div>
 </div>
 <div  *ngIf="userList.length > 0"  class="example-container mat-elevation-z8">
-  
+
 <mat-table class=""  [dataSource]="dataSource" matSort >
-  
+
     <ng-container matColumnDef="_id">
       <mat-header-cell *matHeaderCellDef mat-sort-header >Id</mat-header-cell>
       <mat-cell *matCellDef="let item" class="mobile-hide">
@@ -164,7 +164,7 @@
 {{item._id}}
       </mat-cell>
     </ng-container>
-  
+
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef mat-sort-header >nom</mat-header-cell>
       <mat-cell *matCellDef="let item" class="mobile-hide">
@@ -172,7 +172,7 @@
 {{item.name}}
       </mat-cell>
     </ng-container>
-  
+
     <ng-container matColumnDef="firstname">
       <mat-header-cell *matHeaderCellDef mat-sort-header >Prénom</mat-header-cell>
       <mat-cell *matCellDef="let item" class="mobile-hide">
@@ -180,7 +180,7 @@
 {{item.firstname}}
       </mat-cell>
     </ng-container>
-  
+
     <ng-container matColumnDef="group">
       <mat-header-cell *matHeaderCellDef mat-sort-header >Groupe préféré</mat-header-cell>
       <mat-cell *matCellDef="let item" class="mobile-hide">
@@ -188,7 +188,7 @@
 {{item.group}}
       </mat-cell>
     </ng-container>
-  
+
     <ng-container matColumnDef="sexe">
       <mat-header-cell *matHeaderCellDef mat-sort-header >Sexe</mat-header-cell>
       <mat-cell *matCellDef="let item" class="mobile-hide">
@@ -196,7 +196,7 @@
 {{item.sexe}}
       </mat-cell>
     </ng-container>
-  
+
     <ng-container matColumnDef="date_naissance">
       <mat-header-cell *matHeaderCellDef mat-sort-header >Date de naissance</mat-header-cell>
       <mat-cell *matCellDef="let item" class="mobile-hide">
@@ -204,7 +204,7 @@
 {{item.date_naissance}}
       </mat-cell>
     </ng-container>
-  
+
     <ng-container matColumnDef="niveau">
       <mat-header-cell *matHeaderCellDef mat-sort-header >Niveau </mat-header-cell>
       <mat-cell *matCellDef="let item" class="mobile-hide">
@@ -212,7 +212,7 @@
 {{item.niveau}}
       </mat-cell>
     </ng-container>
-  
+
 <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>
     <mat-cell class=""

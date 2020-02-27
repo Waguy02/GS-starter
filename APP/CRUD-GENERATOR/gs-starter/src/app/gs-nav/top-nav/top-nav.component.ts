@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'top-nav',
@@ -10,7 +11,7 @@ export class TopNavComponent implements OnInit {
 
   constructor() {
   }
-
+   app_name:string=environment['app_name'];
 
   ngOnInit(): void {
   }

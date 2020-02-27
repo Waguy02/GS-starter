@@ -1,21 +1,21 @@
 
 
-
 import { UserService } from "src/app/rh/user/user.service"
 import { User} from "src/app/rh/user/user"
-
-import { GroupService } from  "src/app/rh/group/group.service";
-import { Group} from  "src/app/rh/group/group";
-
-import { UserGroupService } from './../user-group.service';
-import { UserGroup } from '../user-group';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { map, switchMap, debounceTime, tap, finalize } from 'rxjs/operators';
 import { of } from 'rxjs';
-import {GroupFilter} from "../../group/group-filter";
+import {UserFilter} from "src/app/rh/user/user-filter"
+
+  import { GroupService } from  "src/app/rh/group/group.service";
+  import { Group} from  "src/app/rh/group/group";
+  import {GroupFilter} from "src/app/rh/group/group-filter"
+  
+import { UserGroupService } from './../user-group.service';
+import { UserGroup } from '../user-group'
 const caster=require('angular-crud/gs-cast');
 @Component({
   selector: 'user-TO-group',

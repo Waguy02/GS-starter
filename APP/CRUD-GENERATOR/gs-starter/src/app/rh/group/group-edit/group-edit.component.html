@@ -11,13 +11,31 @@
     Création d'un group
   </li>
 </ol>
-<div class="card" *ngIf="group">
-  <div class="header">
-    <h2 class="title">
-      <span *ngIf="!group._id">Création d'un group</span>
-      <span *ngIf="group._id">group</span>
-    </h2>
-  </div>
+<mat-expansion-panel  expanded=true class="card" *ngIf="group" fxLayout="column">
+  <mat-expansion-panel-header fxFlex="5" class="lead" fxLayout="column" fxLayout="center">
+
+
+      <mat-panel-title>
+        <p class="h4">
+          <span *ngIf="!group._id">Création d'un group</span>
+          <span *ngIf="group._id">group</span>
+
+
+        </p>
+      </mat-panel-title>
+
+      <mat-panel-description>
+
+        <p class="h4"> Main Informations </p>
+      </mat-panel-description>
+
+
+
+
+
+
+
+  </mat-expansion-panel-header>
   <div class="content">
     <div *ngIf="feedback" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
     <form  #editForm="ngForm" (ngSubmit)="save()">
@@ -84,4 +102,4 @@
       <button type="button" class="btn btn-secondary" (click)="cancel()">Annuler</button>
     </form>
   </div>
-</div>
+</mat-expansion-panel>

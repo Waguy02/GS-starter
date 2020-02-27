@@ -16,9 +16,9 @@
 
 
 
-  <mat-expansion-panel style="overflow: auto "  fxLayout="column" fxLayoutGap="5" fxLayoutAlign="flex-start">
+  <mat-expansion-panel style="overflow: auto "  fxLayout="column" fxLayoutGap="10" fxLayoutAlign="flex-start">
 
-    <mat-expansion-panel-header  class="bg-primary"  >
+    <mat-expansion-panel-header   fxFlex="5" class="lead" fxLayout="column" fxLayout="center" >
     <i class="ti-search h4"></i>
     </mat-expansion-panel-header>
 
@@ -50,13 +50,13 @@
 
   <mat-expansion-panel style="overflow: auto "  fxLayout="column" fxLayoutGap="5" fxLayoutAlign="flex-start" >
 
-    <mat-expansion-panel-header fxFlex="5" fxLayout="column" fxLayout="center">
+    <mat-expansion-panel-header  fxFlex="5" class="lead" fxLayout="column" fxLayout="center">
       <p class="h5"> Liste des groups de user </p>
     </mat-expansion-panel-header>
 
 
 
-    <mat-expansion-panel *ngFor="let user_group of user_groupList |keyvalue" fxLayout="column" fxLayout.xs="column" fxLayoutAlign="space-between">
+    <mat-expansion-panel *ngFor="let user_group of user_groupList |keyvalue" fxLayout="column" fxLayoutGap="10"  fxLayout.xs="column" fxLayoutAlign="space-between">
       <mat-expansion-panel-header>
         <p >{{ user_group.value.group}}</p>
       </mat-expansion-panel-header>

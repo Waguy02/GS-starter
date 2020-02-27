@@ -21,24 +21,41 @@ export class ConfigurationService {
   constructor(private http: HttpClient) {
   }
 
-  public loadConfigurations(): any {
+
+  public loadConfigFiles() {
     if (!this.configuration$) {
       this.configuration$ = this.http.get<Configuration>(this.CONFIG_URL).pipe(
 
         shareReplay(1)
       );
     }
-    this.configuration$.toPromise().then(data=>this.parseConfiguration(data)).catch(err=>console.log(err));
-    return this.configuration$;
+    return this.configuration$.toPromise();
+
   }
 
+  public  async loadConfigurations() {
+    const data= await  this.loadConfigFiles();
+    this.parseConfigurationApis(data);this.parseConfigurationMain(data);
+    console.log('find de lecture');
 
-  public parseConfiguration(data):any{
+  }
 
-      for(var key in data){
-      environment[key]=data[key];
+  public parseConfigurationMain(data) {
+    for (const key in data.main) {
+
+      environment[key] = data.main[key];
     }
-    console.log(environment);
+
+
+
+  }
+
+  public parseConfigurationApis(data): any {
+
+      for (const key in data.api_roots) {
+      environment[key] = data.api_roots[key];
+    }
+
 
 
   }

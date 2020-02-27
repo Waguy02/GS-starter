@@ -1,15 +1,88 @@
-<mat-card  fxLayout="column" fxLayoutAling="space-between">
-  <mat-card-header fxFlex="5" fxLayout="column" fxLayout="center">
-    Liste des user
-  </mat-card-header>
-  <mat-card-content style="overflow: auto" fxFlex="80" fxLayout="column" fxLayoutGap="5" fxLayoutAlign="flex-start" >
-    <mat-card *ngFor="let user_group of user_groupList" fxFLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
+
+<mat-expansion-panel fxLayout="column">
+
+  <mat-expansion-panel-header   fxFlex="5" class="lead" fxLayout="column" fxLayout="center">
+    <mat-panel-title>
+      <p class="h4"> user </p>
+    </mat-panel-title>
+
+    <mat-panel-description>
+
+      <p class="h4"> Manage yours users </p>
+    </mat-panel-description>
+
+  </mat-expansion-panel-header>
+
+
+
+
+  <mat-expansion-panel style="overflow: auto "  fxLayout="column" fxLayoutGap="5" fxLayoutAlign="flex-start">
+
+    <mat-expansion-panel-header  class="bg-primary"  >
+      <i class="ti-search h4"></i>
+    </mat-expansion-panel-header>
+
+
+
+
+    <mat-form-field>
+      <mat-label class="h5">Recherche d'un user </mat-label>
+      <input matInput class="form-control" name="userSearch"
+             type="text"  [formControl]="userSearch">
+    </mat-form-field>
+
+
+
+    <mat-card *ngFor="let user of foundUsers" fxFLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
       <div class="bg-transparent" fxFlex="40" fxFlex.xs="80">
-        Informations sur le user ici
+        {{user}}
       </div>
-      <div flFlex="20">
-        <button mat-button (click)="actionQuit(user_group)">QUITTER</button>
+      <div fxFlex="20">
+        <button  *ngIf="!user_groupList.has(user._id);else alreadyMemberTemplate"  class="btn btn-primary" mat-button (click)="actionJoin(user)">REJOINDRE</button>
+        <ng-template #alreadyMemberTemplate><mat-card> DEJA MEMBRE</mat-card> </ng-template>
       </div>
     </mat-card>
-  </mat-card-content>
-</mat-card>
+
+  </mat-expansion-panel>
+
+
+
+
+  <mat-expansion-panel style="overflow: auto "  fxLayout="column" fxLayoutGap="5" fxLayoutAlign="flex-start" >
+
+    <mat-expansion-panel-header fxFlex="5" fxLayout="column" fxLayout="center">
+      <p class="h5"> Liste des users de group </p>
+    </mat-expansion-panel-header>
+
+
+
+    <mat-expansion-panel *ngFor="let user_group of user_groupList |keyvalue" fxLayout="column" fxLayout.xs="column" fxLayoutAlign="space-between">
+      <mat-expansion-panel-header>
+        <p >{{ user_group.value.user}}</p>
+      </mat-expansion-panel-header>
+      <div fxLayout="column" fxLayoutAlign="space-between">
+        <div class="bg-transparent" fxFlex="70" fxFlex.xs="80">
+
+          <user-group-edit   [user_group]=" user_group.value">
+
+        </user-group-edit >
+
+      </div>
+      <div fxFlex="20">
+        <button class="btn btn-danger" mat-button (click)="actionQuit(user_group.value)">QUITTER</button>
+      </div>
+      </div>
+    </mat-expansion-panel>
+
+
+  </mat-expansion-panel>
+
+
+
+
+
+
+</mat-expansion-panel>
+
+
+
