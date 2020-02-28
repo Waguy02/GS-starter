@@ -24,13 +24,15 @@ import {UserModule} from "./rh/user/user.module";
 import {UserGroupModule} from "./rh/user-group/user-group.module";
   import {ConfigurationService} from "./configuration/configuration.service";
 import {GroupModule} from "./rh/group/group.module";
+import { ParamComponent } from './param/param.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 
 @NgModule({
 
   declarations: [
-    AppComponent, NavComponent
+    AppComponent, NavComponent, ParamComponent
   ],
   imports: [
 
@@ -43,6 +45,7 @@ import {GroupModule} from "./rh/group/group.module";
     MatInputModule,
     MatFormFieldModule,
     MatListModule,
+    MatDialogModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     HttpClientModule,

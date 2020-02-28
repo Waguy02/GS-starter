@@ -23,7 +23,7 @@ on spécifie les deux entités (first_entity et second_entity) intervenant dans 
 	on précise également l'api (EndPoint) permettant de gérer les relations pour la table associée à cette relation . 	
 
 	
-	Commande à exécuter: ng generate angular-crud:model-multi-ref firstEntity secondEntity :
+	Commande à exécuter: ng generate angular-crud:model-multi-ref firstEntity secondEntity [nom du repertoire contenant le module] :
 
 	Nommenclature des repertoires contenant le module :  firstEntity-secondEntity;
 
